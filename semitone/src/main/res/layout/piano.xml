@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:semitone="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <mn.tck.semitone.PianoView
+            android:id="@+id/piano"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/vertical_24"
+                android:padding="5dp" />
+
+            <ImageView
+                android:id="@+id/add_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/add_circle_24"
+                android:padding="5dp" />
+
+            <ImageView
+                android:id="@+id/remove_row"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/remove_circle_24"
+                android:padding="5dp" />
+
+            <android.widget.Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/reset_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/reset_view"
+                android:padding="5dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/horizontal_24"
+                android:padding="5dp" />
+
+            <ImageView
+                android:id="@+id/add_col"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/add_circle_24"
+                android:padding="5dp" />
+
+            <ImageView
+                android:id="@+id/remove_col"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/remove_circle_24"
+                android:padding="5dp" />
+
+            <ImageView
+                android:id="@+id/left_octave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chevron2_left_24"
+                android:padding="5dp" />
+
+            <ImageView
+                android:id="@+id/left_key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chevron_left_24"
+                android:padding="5dp" />
+
+            <ImageView
+                android:id="@+id/right_key"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chevron_right_24"
+                android:padding="5dp" />
+
+            <ImageView
+                android:id="@+id/right_octave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/chevron2_right_24"
+                android:padding="5dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

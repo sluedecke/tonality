@@ -1,0 +1,91 @@
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.4.0'
+    }
+}
+
+apply plugin: 'com.android.application'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://maven.google.com"
+    }
+    jcenter()
+}
+
+dependencies {
+    implementation 'com.android.support:preference-v7:28.0.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-core-ui:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+}
+
+android {
+    compileSdkVersion 28
+
+    lintOptions {
+        disable "GoogleAppIndexingWarning"
+    }
+
+    defaultConfig {
+        applicationId "mn.tck.semitone"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 3
+        versionName "1.2"
+        externalNativeBuild {
+            cmake {
+                arguments "-DANDROID_PLATFORM=android-16"
+            }
+        }
+    }
+
+    signingConfigs {
+        config {
+            if (keystorePropertiesFile.exists()) {
+                keyAlias keystoreProperties["keyAlias"]
+                keyPassword keystoreProperties["keyPassword"]
+                storeFile file(keystoreProperties["storeFile"])
+                storePassword keystoreProperties["storePassword"]
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ["shared"]
+        }
+    }
+
+    buildTypes {
+        release {
+            if (keystorePropertiesFile.exists()) {
+                signingConfig signingConfigs.config
+            }
+        }
+    }
+}
+
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+    }
+}

@@ -1,0 +1,47 @@
+Semitone - tuner, metronome, and piano for Android
+Copyright (C) 2019  Andy Tockman <andy@tck.mn>
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-------
+
+Official website:     https://tck.mn/semitone/
+Google Play download: https://play.google.com/store/apps/details?id=mn.tck.semitone
+F-Droid download:     https://f-droid.org/packages/mn.tck.semitone
+
+-------
+
+To compile, first run
+
+ $ tools/build_ffmpeg.sh
+ $ tools/copy_ffmpeg.sh
+
+The first command is a custom build script to build ffmpeg with only the
+necessary features, and the second command moves the shared object files to the
+place where CMake is configured to find them. Then, to build Semitone, run
+either of the following commands:
+
+ $ gradle buildDebug
+ $ gradle buildRelease
+
+-------
+
+This software uses:
+
+ * libraries from the FFmpeg project, under the GPLv2 or later
+
+ * Material Design icons and the Oboe library, both licensed by Google under
+   the Apache 2.0
+
+ * audio provided by the University of Iowa Musical Instrument Samples project

@@ -1,0 +1,6 @@
+[submodule "lib/oboe"]
+	path = lib/oboe
+	url = https://github.com/google/oboe
+[submodule "lib/ffmpeg"]
+	path = lib/ffmpeg
+	url = git://source.ffmpeg.org/ffmpeg.git
