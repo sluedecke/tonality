@@ -1,27 +1,67 @@
-= Tonality
+= Tonality - a free piano
 (C) Sascha Lüdecke <sascha@currit.net>
 
-Based on:
+Tonality is based on:
 
-Semitone - tuner, metronome, and piano for Android
-Copyright (C) 2019  Andy Tockman <andy@tck.mn>
+    Semitone - tuner, metronome, and piano for Android
+    Copyright (C) 2019  Andy Tockman <andy@tck.mn>
 
 == Feature Overview
 
+Tonality provides a piano view, to allow to play on a simple piano keyboard.
+
+Features:
+
+* [x] Piano view to play with
+* [ ] Optional key labelling
+* [ ] Dynamic sizing of the keyboard
+* [ ] Stack multiple keyboards
+* [ ] Scale highlighting
+
 == License
 
-see LICENSE file
+see LICENSE file for more details and this snippet for an overview:
 
-== Build instructinos
+____
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+____
+
+== Development
+
+=== Build instructinos
 
 * checkout tonality
-* intialize subtree semitone
 * convert semitone into an android library (semitone/build.gradle)
     * change build gradle plugin to library
     * comment out application ID
 * prepare building semitone:
-    cd semitone
-    ./tools/build_ffmpeg.sh
-    ./tools/copy_ffmpeg.sh
+    . `cd semitone`
+    . `./tools/build_ffmpeg.sh`
+    . `./tools/copy_ffmpeg.sh`
 * build tonality
-    gradle build
+    `gradle build`
+
+=== Interaction with upstream semitone
+
+These commands assume that remotes named `semitone-upstream` and `semitone-as-a-library`
+have been set up
+
+pull::
+    * commit all changes
+    * `git subtree pull --prefix semitone semitone-upstream master`
+
+push::
+    * commit all changes
+    * `git subtree push --prefix semitone semitone-fork semitone-as-a-library`
+    * add pull request towards semitone project
