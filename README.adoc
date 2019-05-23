@@ -1,0 +1,27 @@
+= Tonality
+(C) Sascha Lüdecke <sascha@currit.net>
+
+Based on:
+
+Semitone - tuner, metronome, and piano for Android
+Copyright (C) 2019  Andy Tockman <andy@tck.mn>
+
+== Feature Overview
+
+== License
+
+see LICENSE file
+
+== Build instructinos
+
+* checkout tonality
+* intialize subtree semitone
+* convert semitone into an android library (semitone/build.gradle)
+    * change build gradle plugin to library
+    * comment out application ID
+* prepare building semitone:
+    cd semitone
+    ./tools/build_ffmpeg.sh
+    ./tools/copy_ffmpeg.sh
+* build tonality
+    gradle build

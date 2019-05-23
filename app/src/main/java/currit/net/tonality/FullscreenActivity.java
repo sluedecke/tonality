@@ -5,10 +5,15 @@ import android.annotation.SuppressLint;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.view.MotionEvent;
 import android.view.View;
+
+import mn.tck.semitone.PianoEngine;
+import mn.tck.semitone.PianoView;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -93,7 +98,7 @@ public class FullscreenActivity extends AppCompatActivity {
 
         mVisible = true;
         mControlsView = findViewById(R.id.fullscreen_content_controls);
-        mContentView = findViewById(R.id.fullscreen_content);
+        mContentView = findViewById(R.id.piano);
 
 
         // Set up the user interaction to manually show or hide the system UI.
@@ -108,6 +113,31 @@ public class FullscreenActivity extends AppCompatActivity {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+
+        PianoEngine.create(this);
+
+        TonalityPianoView piano = findViewById(R.id.piano);
+
+        // initialize our PianoView
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        int concert_a;
+        try {
+            concert_a = Integer.parseInt(sp.getString("concert_a", "440"));
+        } catch (NumberFormatException e) {
+            concert_a = 440;
+        }
+
+        piano.setup(concert_a,
+                sp.getBoolean("sustain", false),
+                sp.getBoolean("labelnotes", true),
+                sp.getBoolean("labelc", true)
+        );
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        PianoEngine.destroy();
     }
 
     @Override
