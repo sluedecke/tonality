@@ -14,9 +14,15 @@ Features:
 
 * [x] Piano view to play with
 * [ ] Optional key labelling
-* [ ] Dynamic sizing of the keyboard
-* [ ] Stack multiple keyboards
+* [x] Dynamic sizing of the keyboard
+* [x] Stack multiple keyboards
 * [ ] Scale highlighting
+
+Other TODOs:
+
+* [ ] remove semitone launcher (creates duplicate icon)
+* [ ] implement control bar for keyboard size
+* [ ] implement control bar for scale highlighting
 
 .Piano as of version 0.0
 image::doc/tonality-v0.0.png[]

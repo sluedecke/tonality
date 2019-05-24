@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
+import android.view.View;
 
 import androidx.core.content.ContextCompat;
 
@@ -119,6 +120,59 @@ public class TonalityPianoView extends PianoView {
         }
     }
 
+
+    //
+    // Callbacks which can be used in Android data bindings
+    //
+
+    public void addRow(View v) {
+        if (rows < 5) ++rows;
+        updateParams(true);
+    }
+
+    public void removeRow(View v) {
+        if (rows > 1) --rows;
+        updateParams(true);
+    }
+
+    public void addKey(View v) {
+        if (keys < 21) ++keys;
+        updateParams(true);
+    }
+
+    public void removeKey(View v) {
+        if (keys > 7) --keys;
+        updateParams(true);
+    }
+
+    public void octaveLeft(View v) {
+        pitch -= 7;
+        if (pitch < 7) pitch = 7;
+        updateParams(true);
+    }
+
+    public void pitchLeft(View v) {
+        if (pitch > 7) --pitch;
+        updateParams(true);
+    }
+
+    public void pitchRight(View v) {
+        if (pitch < 49) ++pitch;
+        updateParams(true);
+    }
+
+    public void octaveRight(View v) {
+        pitch += 7;
+        if (pitch > 49) pitch = 49;
+        updateParams(true);
+    }
+
+    public void resetPiano(View v) {
+        rows = 2;
+        keys = 7;
+        pitch = 28;
+        updateParams(true);
+    }
 
     private boolean isBlack(int p) {
         return p % 12 == 1 || p % 12 == 3 || p % 12 == 6 || p % 12 == 8 || p % 12 == 10;
