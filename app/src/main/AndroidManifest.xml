@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="currit.net.tonality">
 
+    <!-- Disable permission from semitone -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:theme">
+        tools:node="replace"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".TonalityMainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -23,5 +27,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
