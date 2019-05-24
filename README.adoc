@@ -18,12 +18,6 @@ Features:
 * [x] Stack multiple keyboards
 * [ ] Scale highlighting
 
-Other TODOs:
-
-* [ ] remove semitone launcher (creates duplicate icon)
-* [ ] implement control bar for keyboard size
-* [ ] implement control bar for scale highlighting
-
 .Tonality as of version 0.1
 image::doc/tonality-v0.1.png[]
 
