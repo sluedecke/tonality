@@ -24,8 +24,8 @@ Other TODOs:
 * [ ] implement control bar for keyboard size
 * [ ] implement control bar for scale highlighting
 
-.Piano as of version 0.0
-image::doc/tonality-v0.0.png[]
+.Tonality as of version 0.1
+image::doc/tonality-v0.1.png[]
 
 == License
 
