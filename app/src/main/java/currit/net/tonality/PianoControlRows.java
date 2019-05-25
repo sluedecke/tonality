@@ -7,13 +7,13 @@ import android.view.ViewGroup;
 
 import androidx.databinding.DataBindingUtil;
 
-import currit.net.tonality.databinding.FragmentPianoControlKeysBinding;
+import currit.net.tonality.databinding.FragmentPianoControlRowsBinding;
 
 
-public class PianoControlKeys extends PianoControlFragment {
-    private FragmentPianoControlKeysBinding binding;
+public class PianoControlRows extends PianoControlFragment {
+    private FragmentPianoControlRowsBinding binding;
 
-    public PianoControlKeys() {
+    public PianoControlRows() {
         // Required empty public constructor
     }
 
@@ -27,7 +27,7 @@ public class PianoControlKeys extends PianoControlFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_piano_control_keys, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_piano_control_rows, container, false);
         return binding.getRoot();
     }
 }

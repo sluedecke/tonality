@@ -16,7 +16,15 @@ Features:
 * [ ] Optional key labelling
 * [x] Dynamic sizing of the keyboard
 * [x] Stack multiple keyboards
-* [ ] Scale highlighting
+* [x] Scale highlighting
+
+TODO
+
+* [ ] fix display bug when showing multiple key rows (gap is undefined)
+* [ ] I18N of scale names
+* [ ] Implement preferences dialog
+* [ ] add reset button to piano view
+* [ ] add nice app icon
 
 .Tonality as of version 0.1
 image::doc/tonality-v0.1.png[]

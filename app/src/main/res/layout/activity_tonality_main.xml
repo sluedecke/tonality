@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".TonalityMainActivity">
 
 
@@ -15,8 +16,18 @@
         />
 
     <fragment
+        android:id="@+id/piano_control_rows"
+        android:name="currit.net.tonality.PianoControlRows"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <fragment
         android:id="@+id/piano_control_keys"
         android:name="currit.net.tonality.PianoControlKeys"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <fragment
+        android:id="@+id/piano_control_scale"
+        android:name="currit.net.tonality.PianoControlScale"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </LinearLayout>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
 
         <variable
@@ -9,99 +9,62 @@
     </data>
 
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".PianoControlKeys">
-
-        <LinearLayout
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:src="@drawable/piano_keys" />
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimaryDark"
-                android:src="@drawable/piano_rows" />
-
-            <ImageButton
-                android:id="@+id/rows_add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary"
-                android:onClick="@{piano::addRow}"
-                android:src="@drawable/icon_add" />
-
-            <ImageButton
-                android:id="@+id/rows_remove"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary"
-                android:onClick="@{piano::removeRow}"
-                android:src="@drawable/icon_remove" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <ImageButton
+            android:id="@+id/keys_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="@{piano::addKey}"
+            android:src="@drawable/icon_add" />
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimaryDark"
-                android:src="@drawable/piano_keys" />
+        <ImageButton
+            android:id="@+id/keys_remove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="@{piano::removeKey}"
+            android:src="@drawable/icon_remove" />
 
-            <ImageButton
-                android:id="@+id/keys_add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary"
-                android:onClick="@{piano::addKey}"
-                android:src="@drawable/icon_add" />
+        <ImageButton
+            android:id="@+id/keys_octave_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="@{piano::octaveLeft}"
+            android:src="@drawable/icon_backward" />
 
-            <ImageButton
-                android:id="@+id/keys_remove"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary"
-                android:onClick="@{piano::removeKey}"
-                android:src="@drawable/icon_remove" />
+        <ImageButton
+            android:id="@+id/keys_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="@{piano::pitchLeft}"
+            android:src="@drawable/arrow_left" />
 
-            <ImageButton
-                android:id="@+id/keys_octave_down"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary"
-                android:onClick="@{piano::octaveLeft}"
-                android:src="@drawable/icon_backward" />
+        <ImageButton
+            android:id="@+id/keys_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="@{piano::pitchRight}"
+            android:src="@drawable/arrow_right" />
 
-            <ImageButton
-                android:id="@+id/keys_left"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary"
-                android:onClick="@{piano::pitchLeft}"
-                android:src="@drawable/arrow_left" />
-
-            <ImageButton
-                android:id="@+id/keys_right"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary"
-                android:onClick="@{piano::pitchRight}"
-                android:src="@drawable/arrow_right" />
-
-            <ImageButton
-                android:id="@+id/keys_octave_up"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/colorPrimary"
-                android:onClick="@{piano::octaveRight}"
-                android:src="@drawable/icon_forward" />
-        </LinearLayout>
+        <ImageButton
+            android:id="@+id/keys_octave_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="@{piano::octaveRight}"
+            android:src="@drawable/icon_forward" />
     </LinearLayout>
 </layout>
