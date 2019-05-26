@@ -21,15 +21,14 @@ Features:
 
 TODO
 
-* [ ] fix display bug when showing multiple key rows (gap is undefined)
 * [ ] I18N of scale names
 * [ ] Implement preferences dialog
 * [ ] add reset button to piano view
 * [ ] add nice app icon
 * [ ] top of keys needs a black border, too
 
-.Tonality as of version 0.1
-image::doc/tonality-v0.1.png[]
+.Tonality as of 2019-05-26
+image::doc/tonality-v0.2-dev.png[]
 
 == License
 
