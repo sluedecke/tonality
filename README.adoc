@@ -5,6 +5,7 @@ Tonality is based on:
 
     Semitone - tuner, metronome, and piano for Android
     Copyright (C) 2019  Andy Tockman <andy@tck.mn>
+    Official website:     https://tck.mn/semitone/
 
 == Feature Overview
 
@@ -25,6 +26,7 @@ TODO
 * [ ] Implement preferences dialog
 * [ ] add reset button to piano view
 * [ ] add nice app icon
+* [ ] top of keys needs a black border, too
 
 .Tonality as of version 0.1
 image::doc/tonality-v0.1.png[]
@@ -65,7 +67,7 @@ ____
 
 === Interaction with upstream semitone
 
-These commands assume that remotes named `semitone-upstream` and `semitone-as-a-library`
+These commands assume that remotes named `semitone-upstream` and `semitone-as-a-library`.
 have been set up
 
 pull::
