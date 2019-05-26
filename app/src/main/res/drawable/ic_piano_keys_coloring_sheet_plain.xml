@@ -4,27 +4,27 @@
         android:fillType="evenOdd"
         android:pathData="M0.945,139.783l740.964,0l0,463.288l-740.964,0z"
         android:strokeAlpha="1" android:strokeColor="#00000000" android:strokeWidth="1.83207178"/>
-    <path android:fillAlpha="1" android:fillColor="#fffd8a"
+    <path android:fillAlpha="1" android:fillColor="#d1a148"
         android:fillType="nonZero"
         android:pathData="M0.945,139.783l105.428,0l0,463.247l-105.428,0z"
         android:strokeAlpha="1" android:strokeColor="#00000000"
         android:strokeLineCap="round" android:strokeLineJoin="miter" android:strokeWidth="2.8287189"/>
-    <path android:fillAlpha="1" android:fillColor="#fffd8a"
+    <path android:fillAlpha="1" android:fillColor="#ffe488"
         android:fillType="nonZero"
         android:pathData="M106.373,139.783l105.428,0l0,463.247l-105.428,0z"
         android:strokeAlpha="1" android:strokeColor="#00000000"
         android:strokeLineCap="round" android:strokeLineJoin="miter" android:strokeWidth="2.8287189"/>
-    <path android:fillAlpha="1" android:fillColor="#fffd8a"
+    <path android:fillAlpha="1" android:fillColor="#ffe488"
         android:fillType="nonZero"
         android:pathData="M211.801,139.783l105.428,0l0,463.247l-105.428,0z"
         android:strokeAlpha="1" android:strokeColor="#00000000"
         android:strokeLineCap="round" android:strokeLineJoin="miter" android:strokeWidth="2.8287189"/>
-    <path android:fillAlpha="1" android:fillColor="#fffd8a"
+    <path android:fillAlpha="1" android:fillColor="#ffe488"
         android:fillType="nonZero"
         android:pathData="M424.532,140.154l105.428,0l0,463.247l-105.428,0z"
         android:strokeAlpha="1" android:strokeColor="#00000000"
         android:strokeLineCap="round" android:strokeLineJoin="miter" android:strokeWidth="2.8287189"/>
-    <path android:fillAlpha="1" android:fillColor="#fffd8a"
+    <path android:fillAlpha="1" android:fillColor="#ffe488"
         android:fillType="nonZero"
         android:pathData="M529.96,140.154l105.428,0l0,463.247l-105.428,0z"
         android:strokeAlpha="1" android:strokeColor="#00000000"

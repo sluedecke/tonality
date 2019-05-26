@@ -23,6 +23,7 @@ public class TonalityPianoView extends PianoView {
     public int scale = PREF_SCALE_DEFAULT;
     public int rootNote = PREF_SCALE_ROOT_DEFAULT;
     Paint whiteScalePaint, blackScalePaint;
+    Paint whiteScalePaintRoot, blackScalePaintRoot;
     Paint[] scaleColors;
 
     public TonalityPianoView(Context context, AttributeSet attrs) {
@@ -33,6 +34,11 @@ public class TonalityPianoView extends PianoView {
         whiteScalePaint.setColor(ContextCompat.getColor(getContext(), R.color.whiteScale));
         blackScalePaint = new Paint();
         blackScalePaint.setColor(ContextCompat.getColor(getContext(), R.color.blackScale));
+        whiteScalePaintRoot = new Paint();
+        whiteScalePaintRoot.setColor(ContextCompat.getColor(getContext(), R.color.whiteScaleRoot));
+        blackScalePaintRoot = new Paint();
+        blackScalePaintRoot.setColor(ContextCompat.getColor(getContext(), R.color.blackScaleRoot));
+
         setScale(sp.getInt(PREF_SCALE, PREF_SCALE_DEFAULT), sp.getInt(PREF_SCALE_ROOT, PREF_SCALE_ROOT_DEFAULT));
 
         this.concert_a = 440; // set a default to avoid DIV0 errors
@@ -59,7 +65,7 @@ public class TonalityPianoView extends PianoView {
                 realKey = (i + rootNote) % 12;
                 scaleColors[realKey] = (scaleArray[i] == 0
                         ? (isBlack(realKey) ? blackPaint : whitePaint)
-                        : (isBlack(realKey) ? blackScalePaint : whiteScalePaint));
+                        : (isBlack(realKey) ? (realKey == newRoot ? blackScalePaintRoot : blackScalePaint) : (realKey == newRoot ? whiteScalePaintRoot : whiteScalePaint)));
             }
             ta.recycle();
         } else {
