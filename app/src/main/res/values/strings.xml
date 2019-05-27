@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Tonality</string>
+    <string name="about_tonality_file">about-tonality.html</string>
 </resources>

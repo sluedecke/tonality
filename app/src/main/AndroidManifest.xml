@@ -2,9 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="currit.net.tonality">
-
     <!-- Disable permission from semitone -->
-    <uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove"/>
+    <uses-permission
+        android:name="android.permission.RECORD_AUDIO"
+        tools:node="remove" />
 
     <application
         android:allowBackup="true"
@@ -13,8 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:node="replace"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:node="replace">
+        <activity android:name=".AboutTonalityActivity"></activity>
         <activity
             android:name=".TonalityMainActivity"
             android:label="@string/app_name"
@@ -26,4 +28,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>

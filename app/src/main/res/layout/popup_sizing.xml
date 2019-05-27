@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="piano"
+            type="currit.net.tonality.TonalityPianoView" />
+        <variable name="popup"
+            type="android.widget.PopupWindow"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#eeeeee">
+
+        <TextView
+            android:id="@+id/popup_title"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Adjust Keyboard"
+            android:gravity="center"
+            android:textColor="@color/white"
+            style="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/group_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/popup_title">
+
+            <ImageButton
+                android:id="@+id/button_rows"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:src="@drawable/piano_rows" />
+
+            <ImageButton
+                android:id="@+id/rows_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="@{piano::addRow}"
+                android:src="@drawable/icon_add" />
+
+            <ImageButton
+                android:id="@+id/rows_remove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="@{piano::removeRow}"
+                android:src="@drawable/icon_remove" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/group_key"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/group_row">
+
+            <ImageButton
+                android:id="@+id/button_keys"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:src="@drawable/piano_keys" />
+
+            <ImageButton
+                android:id="@+id/keys_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="@{piano::addKey}"
+                android:src="@drawable/icon_add" />
+
+            <ImageButton
+                android:id="@+id/keys_remove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="@{piano::removeKey}"
+                android:src="@drawable/icon_remove" />
+
+            <ImageButton
+                android:id="@+id/keys_octave_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="@{piano::octaveLeft}"
+                android:src="@drawable/icon_backward" />
+
+            <ImageButton
+                android:id="@+id/keys_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="@{piano::pitchLeft}"
+                android:src="@drawable/arrow_left" />
+
+            <ImageButton
+                android:id="@+id/keys_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="@{piano::pitchRight}"
+                android:src="@drawable/arrow_right" />
+
+            <ImageButton
+                android:id="@+id/keys_octave_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="@{piano::octaveRight}"
+                android:src="@drawable/icon_forward" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@android:string/ok"
+            android:textAllCaps="false"
+            android:onClick="@{() -> popup.dismiss()}"
+            android:backgroundTint="@color/colorAccent"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/group_key" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
