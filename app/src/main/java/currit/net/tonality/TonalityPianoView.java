@@ -104,7 +104,7 @@ public class TonalityPianoView extends PianoView {
                 int p = pitches[row][key];
 
                 canvas.drawRect(x, y, x + whiteWidth, y + whiteHeight - YPAD, grey3Paint);
-                canvas.drawRect(x + OUTLINE, y, x + whiteWidth - OUTLINE,
+                canvas.drawRect(x + OUTLINE, y + OUTLINE, x + whiteWidth - OUTLINE,
                         y + whiteHeight - OUTLINE * 2 - YPAD,
                         pressed[p] ? grey4Paint : scaleColors[p % 12]);
 
