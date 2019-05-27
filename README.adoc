@@ -23,17 +23,17 @@ TODO
 
 * [ ] I18N of scale names
 * [ ] Implement preferences dialog
-* [x] make sizing buttons a popup
-* [x] convert layouts to constraintlayout
 * [ ] add reset button to piano view
 * [ ] add nice app icon
-* [x] top of keys needs a black border, too
 * [ ] label too high in horizontal mode
-* [x] update about-tonality.html
-* [x] strip unneeded semitone assets
+* [ ] strip unneeded semitone assets
 
-.Tonality as of 2019-05-26
-image::doc/tonality-v0.2-dev.png[]
+.Tonality as of 2019-05-27
+image:doc/tonality-v0.2.png[]
+image:doc/tonality-v0.2 - sizing.png[]
+
+
+
 
 == License
 
