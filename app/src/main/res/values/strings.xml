@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Tonality</string>
     <string name="about_tonality_file">about-tonality.html</string>
+    <string name="title_root_note">Select Root Note</string>
+    <string name="title_scale_name">Select Scale</string>
+
+    <!-- Piano Preferences -->
+    <string name="piano_labelnotes">Label keys</string>
+    <string name="piano_labelc">Label C keys only</string>
 </resources>

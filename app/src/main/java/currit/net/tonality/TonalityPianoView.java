@@ -180,6 +180,27 @@ public class TonalityPianoView extends PianoView {
         updateParams(true);
     }
 
+    public void toggleLabelNotes() {
+        labelnotes = !labelnotes;
+        SharedPreferences.Editor editor =
+                androidx.preference.PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+        editor.putBoolean("labelnotes", labelnotes);
+        editor.apply();
+        invalidate();
+    }
+
+    public void toggleLabelC() {
+        labelc = !labelc;
+        SharedPreferences.Editor editor =
+                androidx.preference.PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+        editor.putBoolean("labelc", labelc);
+        editor.apply();
+        invalidate();
+    }
+
+    public boolean getLabelNotes() { return labelnotes; }
+    public boolean getLabelC() { return labelc; }
+
     private boolean isBlack(int p) {
         return p % 12 == 1 || p % 12 == 3 || p % 12 == 6 || p % 12 == 8 || p % 12 == 10;
     }

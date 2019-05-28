@@ -60,14 +60,12 @@ public class PianoControlScale extends PianoControlFragment {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                // TODO: 2019-05-26 set title of dialog
-//                builder.setTitle(R.string.choose_country);
+                builder.setTitle(R.string.title_root_note);
 
                 builder.setItems(noteNames, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int item) {
                         piano.setScale(piano.scale, item);
                         rootNote.setText(noteNames[item]);
-                        activity.hide();
                     }
                 });
 
@@ -83,14 +81,12 @@ public class PianoControlScale extends PianoControlFragment {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                // TODO: 2019-05-26 set title of dialog
-//                builder.setTitle(R.string.choose_country);
+                builder.setTitle(R.string.title_scale_name);
 
                 builder.setItems(scaleNames, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int item) {
                         piano.setScale(item, piano.rootNote);
                         scaleName.setText(scaleNames[item]);
-                        activity.hide();
                     }
                 });
 

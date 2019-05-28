@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/menu_switch_group">
+        <item
+            android:id="@+id/menu_switch_labelnotes"
+            android:checkable="true"
+            android:title="@string/piano_labelnotes" />
+        <item
+            android:id="@+id/menu_switch_labelc"
+            android:checkable="true"
+            android:title="@string/piano_labelc" />
+    </group>
+
+    <group android:id="@+id/menu_other">
+        <item
+            android:id="@+id/menu_about"
+            android:title="@string/about_title" />
+    </group>
+</menu>

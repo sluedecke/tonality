@@ -6,14 +6,17 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
+import android.widget.PopupMenu;
 import android.widget.PopupWindow;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.MenuCompat;
 import androidx.databinding.DataBindingUtil;
 
 import currit.net.tonality.databinding.PopupSizingBinding;
@@ -23,7 +26,7 @@ public class TonalityMainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.activity_tonality_main);
 
         PianoEngine.create(this);
@@ -67,25 +70,49 @@ public class TonalityMainActivity extends AppCompatActivity {
             }
         });
 
-        // configure more button
-        View moreButton = findViewById(R.id.button_more);
+        // configure menu/more button
+        final View moreButton = findViewById(R.id.button_more);
         moreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), AboutTonalityActivity.class));
+                PopupMenu popupMenu = new PopupMenu(TonalityMainActivity.this, moreButton);
+                popupMenu.inflate(R.menu.tonality_menu);
+                // TODO: 2019-05-28 divider do not show ...
+                MenuCompat.setGroupDividerEnabled(popupMenu.getMenu(), true);
+
+                // enable/disable menu entries
+                Menu m = popupMenu.getMenu();
+                m.findItem(R.id.menu_switch_labelnotes).setChecked(piano.getLabelNotes());
+                m.findItem(R.id.menu_switch_labelc).setChecked(piano.getLabelC()).setEnabled(piano.getLabelNotes());
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                            case R.id.menu_about:
+                                startActivity(new Intent(getApplicationContext(), AboutTonalityActivity.class));
+                                return true;
+                            case R.id.menu_switch_labelnotes:
+                                piano.toggleLabelNotes();
+                                return true;
+                            case R.id.menu_switch_labelc:
+                                piano.toggleLabelC();
+                                return true;
+                            default:
+                                return false;
+                        }
+                    }
+                });
+                popupMenu.show();
             }
         });
 
-        hide();
-    }
-
-    void hide() {
         // Hide UI
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.hide();
         }
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN); // hide notification bar
     }
 
     @Override

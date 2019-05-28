@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:node="replace">
-        <activity android:name=".AboutTonalityActivity"></activity>
+        <activity android:name=".AboutTonalityActivity" />
         <activity
             android:name=".TonalityMainActivity"
             android:label="@string/app_name"
