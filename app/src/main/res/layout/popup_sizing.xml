@@ -55,7 +55,7 @@
             <ImageButton
                 android:id="@+id/rows_remove"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:backgroundTint="@color/colorPrimary"
                 android:onClick="@{piano::removeRow}"
                 android:src="@drawable/icon_remove" />
@@ -125,6 +125,17 @@
                 android:onClick="@{piano::octaveRight}"
                 android:src="@drawable/icon_forward" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/button_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reset_keyboard"
+            android:textAllCaps="false"
+            android:onClick="@{piano::resetPiano}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/group_key" />
+
 
         <Button
             android:id="@+id/button_ok"

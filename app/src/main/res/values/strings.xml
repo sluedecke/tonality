@@ -7,4 +7,14 @@
     <!-- Piano Preferences -->
     <string name="piano_labelnotes">Label keys</string>
     <string name="piano_labelc">Label C keys only</string>
+    <string name="reset_keyboard">Reset</string>
+
+    <!-- Scale names -->
+    <string name="scale_none">No Scale</string>
+    <string name="scale_natural_major">Natural Major</string>
+    <string name="scale_natural_minor">Natural Minor</string>
+    <string name="scale_harmonic_minor">Harmonic Minor</string>
+    <string name="scale_melodic_minor">Melodic Minor</string>
+    <string name="scale_pentatonic_major">Pentatonic Major</string>
+    <string name="scale_pentatonic_minor">Pentatonic Minor</string>
 </resources>

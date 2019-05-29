@@ -13,24 +13,26 @@ Tonality provides a piano view, to allow to play on a simple piano keyboard.
 
 Features:
 
-* [x] Piano view to play with
-* [x] Optional key labelling
-* [x] Dynamic sizing of the keyboard
-* [x] Stack multiple keyboards
-* [x] Scale highlighting
+* Piano view to play with
+* Optional key labelling
+* Dynamic sizing of the keyboard
+* Stack multiple keyboards
+* Scale highlighting
 
 TODO
 
-* [ ] I18N of scale names
-* [ ] add more scales
 * [x] Implement preferences dialog
-* [ ] add reset button to sizing dialog
+* [x] add reset button to sizing dialog
+* [x] I18N of scale names
+* [-] label too high in horizontal mode
+* [ ] add more scales
 * [ ] add nice app icon
-* [ ] label too high in horizontal mode
-* [ ] strip unneeded semitone assets
 * [ ] fix display bug for octave right in sizing popup
-* [ ] publish in Play Store and on f-droid
+* [ ] automate updating semitone
+* [ ] automate building from scratch to ease use in f-droid
+* [ ] minify apks, strip unneeded semitone assets
 * [ ] harmonize handling of pianoview parameters in preferences (currently in PianoView and PianoFragment)
+* [ ] publish in Play Store and on f-droid
 
 .Tonality as of 2019-05-27
 image:doc/tonality-v0.2.png[]

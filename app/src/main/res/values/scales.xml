@@ -9,24 +9,14 @@
     <!-- ok C major_pentatonic ['C', 'D', 'E', 'G', 'A']-->
     <!-- ok C minor_pentatonic ['C', 'Eb', 'F', 'G', 'Bb']-->
 
-    <!-- TODO I18N scale names -->
     <string-array name="scaleNames">
-        <item>None</item>
-        <item>Natural Major</item>
-        <item>Natural Minor</item>
-        <item>Harmonic Minor</item>
-        <item>Melodic Minor</item>
-        <item>Pentatonic Major</item>
-        <item>Pentatonic Minor</item>
-    </string-array>
-    <string-array name="scaleNamesShort">
-        <item>-</item>
-        <item>NatMaj</item>
-        <item>NatMin</item>
-        <item>HarMin</item>
-        <item>MelMin</item>
-        <item>PenMaj</item>
-        <item>PenMin</item>
+        <item>@string/scale_none</item>
+        <item>@string/scale_natural_major</item>
+        <item>@string/scale_natural_minor</item>
+        <item>@string/scale_harmonic_minor</item>
+        <item>@string/scale_melodic_minor</item>
+        <item>@string/scale_pentatonic_major</item>
+        <item>@string/scale_pentatonic_minor</item>
     </string-array>
     <string-array name="noteNames">
         <item>C</item>
