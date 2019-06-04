@@ -27,9 +27,9 @@ Features:
 * [x] popups shall have a proper shadow / elevation
 * [x] fix display bug for octave right in sizing popup
 * [x] use circle of fifths to select root note
+* [x] add nice app icon
 * [-] label too high in horizontal mode
 * [-] automate updating semitone
-* [ ] add nice app icon
 * [ ] automate building from scratch to ease use in f-droid
 * [ ] minify apks, strip unneeded semitone assets
 * [ ] publish in Play Store and on f-droid
