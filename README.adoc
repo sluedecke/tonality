@@ -44,12 +44,11 @@ Features:
 * [ ] add more scales
 
 
-.Tonality as of 2019-05-27
-image:doc/tonality-v0.2.png[]
-image:doc/tonality-v0.2 - sizing.png[]
-
-
-
+.Tonality as of 2019-06-04
+image:doc/tonality-v0.3 - 1. main.png[]
+image:doc/tonality-v0.3 - 2. sizing.png[]
+image:doc/tonality-v0.3 - 3. scale.png[]
+image:doc/tonality-v0.3 - 4. menu.png[]
 
 == License
 
