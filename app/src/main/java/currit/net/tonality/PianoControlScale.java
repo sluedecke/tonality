@@ -2,32 +2,48 @@ package currit.net.tonality;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.PopupWindow;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+
+import currit.net.tonality.databinding.PopupScaleBinding;
 
 
-public class PianoControlScale extends PianoControlFragment {
+public class PianoControlScale extends Fragment {
 
-    TonalityMainActivity activity;
-    Button rootNote;
-    Button scaleName;
+    private static final String PREF_CIRCLEOFFIFTHSSELECTOR = "circleoffifths_selector";
+    private static final Boolean PREF_CIRCLEOFFIFTHSSELECTOR_DEFAULT = true;
 
-    String[] noteNames;
-    String[] scaleNames;
+    private TonalityMainActivity activity;
+    private PopupWindow popup;
 
+    private Button rootNote;
+    private Button scaleName;
+
+    private String[] noteNames;
+    private String[] scaleNames;
+
+    private boolean useCircleOfFifthSelector;
+    private TonalityPianoView piano;
 
     public PianoControlScale() {
         // Required empty public constructor
     }
 
-    @Override
     public void setPiano(TonalityPianoView piano) {
-        super.setPiano(piano);
+        this.piano = piano;
         rootNote.setText(noteNames[piano.rootNote]);
         scaleName.setText(scaleNames[piano.scale]);
     }
@@ -39,7 +55,6 @@ public class PianoControlScale extends PianoControlFragment {
             activity = (TonalityMainActivity) context;
         noteNames = getResources().getStringArray(R.array.noteNames);
         scaleNames = getResources().getStringArray(R.array.scaleNames);
-        // TODO: 2019-05-26 set scaleNames based on orientation
     }
 
     @Override
@@ -49,31 +64,15 @@ public class PianoControlScale extends PianoControlFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_piano_control_scale, container, false);
 
-        // setup root note dialog
-        rootNote = view.findViewById(R.id.button_root_note);
-        rootNote.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
-                builder.setTitle(R.string.title_root_note);
-
-                builder.setItems(noteNames, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int item) {
-                        piano.setScale(piano.scale, item);
-                        rootNote.setText(noteNames[item]);
-                    }
-                });
-
-                AlertDialog alert = builder.create();
-                alert.show();
-            }
-        });
-
+        // setup root note selection dialogue
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
+        useCircleOfFifthSelector = sp.getBoolean(PREF_CIRCLEOFFIFTHSSELECTOR, PREF_CIRCLEOFFIFTHSSELECTOR_DEFAULT);
+        setupNoteSelector(view);
 
         // setup scale dialog
         scaleName = view.findViewById(R.id.button_scale);
@@ -85,7 +84,7 @@ public class PianoControlScale extends PianoControlFragment {
 
                 builder.setItems(scaleNames, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int item) {
-                        piano.setScale(item, piano.rootNote);
+                        piano.setScale(item);
                         scaleName.setText(scaleNames[item]);
                     }
                 });
@@ -96,5 +95,76 @@ public class PianoControlScale extends PianoControlFragment {
         });
 
         return view;
+    }
+
+    public void toggleCircleOfFifthsSelector() {
+        useCircleOfFifthSelector = !useCircleOfFifthSelector;
+
+        // store in preferences
+        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+        editor.putBoolean(PREF_CIRCLEOFFIFTHSSELECTOR, useCircleOfFifthSelector);
+        editor.apply();
+
+        setupNoteSelector(getView());
+    }
+
+    private void setupNoteSelector(View rootView) {
+
+        // setup root note dialog
+        rootNote = rootView.findViewById(R.id.button_root_note);
+
+        if (useCircleOfFifthSelector) {
+            // configure scale popup
+            final PopupScaleBinding binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.popup_scale, null, false);
+            popup = new PopupWindow(binding.getRoot(), ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            binding.setPopup(popup);
+            binding.setHandler(this);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                popup.setElevation(20);
+            }
+            rootNote = rootView.findViewById(R.id.button_root_note);
+            rootNote.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (popup.isShowing())
+                        popup.dismiss();
+                    else {
+                        // late binding of piano, because during onCreateView it is not yet known to us
+                        binding.setPiano(piano);
+
+                        // TODO: 2019-05-27 close with back
+                        popup.showAtLocation(rootNote, Gravity.CENTER, 0, 0);
+                    }
+                }
+            });
+        } else {
+            rootNote.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                    builder.setTitle(R.string.title_root_note);
+
+                    builder.setItems(noteNames, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int item) {
+                            piano.setRoot(item);
+                            rootNote.setText(noteNames[item]);
+                        }
+                    });
+
+                    AlertDialog alert = builder.create();
+                    alert.show();
+                }
+            });
+        }
+    }
+
+    public boolean isUseCircleOfFifthSelector() {
+        return useCircleOfFifthSelector;
+    }
+
+    public void setRoot(int newRoot) {
+        piano.setRoot(newRoot);
+        popup.dismiss();
+        rootNote.setText(noteNames[piano.rootNote]);
     }
 }

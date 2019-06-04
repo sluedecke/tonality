@@ -2,6 +2,7 @@ package currit.net.tonality;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Gravity;
@@ -48,14 +49,17 @@ public class TonalityMainActivity extends AppCompatActivity {
         );
 
         // setup scale UI elements
-        PianoControlFragment cf;
-        cf = (PianoControlFragment) getSupportFragmentManager().findFragmentById(R.id.piano_control_scale);
-        cf.setPiano(piano);
+        final PianoControlScale scaleController;
+        scaleController = (PianoControlScale) getSupportFragmentManager().findFragmentById(R.id.piano_control_scale);
+        scaleController.setPiano(piano);
 
         // configure popup_sizing popup
         LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         PopupSizingBinding binding = DataBindingUtil.inflate(inflater, R.layout.popup_sizing, null, false);
         final PopupWindow popup = new PopupWindow(binding.getRoot(), ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            popup.setElevation(20);
+        }
         binding.setPiano(piano);
         binding.setPopup(popup);
         final View sizingButton = findViewById(R.id.button_sizing);
@@ -69,6 +73,7 @@ public class TonalityMainActivity extends AppCompatActivity {
                     popup.showAtLocation(sizingButton, Gravity.CENTER, 0, 0);
             }
         });
+
 
         // configure menu/more button
         final View moreButton = findViewById(R.id.button_more);
@@ -84,6 +89,7 @@ public class TonalityMainActivity extends AppCompatActivity {
                 Menu m = popupMenu.getMenu();
                 m.findItem(R.id.menu_switch_labelnotes).setChecked(piano.getLabelNotes());
                 m.findItem(R.id.menu_switch_labelc).setChecked(piano.getLabelC()).setEnabled(piano.getLabelNotes());
+                m.findItem(R.id.menu_switch_circleoffifths).setChecked(scaleController.isUseCircleOfFifthSelector());
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -97,6 +103,9 @@ public class TonalityMainActivity extends AppCompatActivity {
                                 return true;
                             case R.id.menu_switch_labelc:
                                 piano.toggleLabelC();
+                                return true;
+                            case R.id.menu_switch_circleoffifths:
+                                scaleController.toggleCircleOfFifthsSelector();
                                 return true;
                             default:
                                 return false;

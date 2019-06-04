@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="popup"
+            type="android.widget.PopupWindow" />
+
+        <variable
+            name="piano"
+            type="currit.net.tonality.TonalityPianoView" />
+
+        <variable
+            name="handler"
+            type="currit.net.tonality.PianoControlScale" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#eeeeee">
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="360dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center"
+            android:text="@string/title_root_note"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/note_maj_c"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <View
+            android:layout_width="@dimen/circle_5th_band_separator"
+            android:layout_height="@dimen/circle_5th_band_separator"
+            android:background="@drawable/circle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+
+
+        <Button
+            android:id="@+id/button_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> popup.dismiss()}"
+            android:text="@android:string/cancel"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <!-- Major Circle -->
+        <TextView
+            android:id="@+id/note_maj_c"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(0)}"
+            android:text="C"
+            android:textColor="@{(piano.rootNote == 0 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 0 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="0"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_outer"/>
+
+        <TextView
+            android:id="@+id/note_maj_g"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(7)}"
+            android:text="G"
+            android:textColor="@{(piano.rootNote == 7 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 7 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="30"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_outer" />
+
+
+        <TextView
+            android:id="@+id/note_maj_d"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(2)}"
+            android:text="D"
+            android:textColor="@{(piano.rootNote == 2 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 2 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="60"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_outer" />
+
+        <TextView
+            android:id="@+id/note_maj_a"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(9)}"
+            android:text="A"
+            android:textColor="@{(piano.rootNote == 9 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 9 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="90"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_outer"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <TextView
+            android:id="@+id/note_maj_e"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(4)}"
+            android:text="E"
+            android:textColor="@{(piano.rootNote == 4 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 4 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="120"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_outer" />
+
+        <TextView
+            android:id="@+id/note_maj_b"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(11)}"
+            android:text="B"
+            android:textColor="@{(piano.rootNote == 11 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 11 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="150"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_outer" />
+
+        <TextView
+            android:id="@+id/note_maj_gb"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(6)}"
+            android:text="G♭/F♯"
+            android:textColor="@{(piano.rootNote == 6 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 6 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="180"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_outer" />
+
+        <TextView
+            android:id="@+id/note_maj_db"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(1)}"
+            android:text="D♭"
+            android:textColor="@{(piano.rootNote == 1 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 1 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="210"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_outer" />
+
+        <TextView
+            android:id="@+id/note_maj_ab"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(8)}"
+            android:text="A♭"
+            android:textColor="@{(piano.rootNote == 8 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 8 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="240"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_outer" />
+
+        <TextView
+            android:id="@+id/note_maj_eb"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(3)}"
+            android:text="E♭"
+            android:textColor="@{(piano.rootNote == 3 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 3 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="270"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_outer" />
+
+        <TextView
+            android:id="@+id/note_maj_bb"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(10)}"
+            android:text="B♭"
+            android:textColor="@{(piano.rootNote == 10 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 10 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="300"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_outer" />
+
+        <TextView
+            android:id="@+id/note_maj_f"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(5)}"
+            android:text="F"
+            android:textColor="@{(piano.rootNote == 5 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 5 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="330"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_outer" />
+
+        <!-- Minor Circle -->
+        <TextView
+            android:id="@+id/note_min_a"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(9)}"
+            android:text="a"
+            android:textColor="@{(piano.rootNote == 9 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 9 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="0"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_inner" />
+
+        <TextView
+            android:id="@+id/note_min_e"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(4)}"
+            android:text="e"
+            android:textColor="@{(piano.rootNote == 4 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 4 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="30"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_inner" />
+
+        <TextView
+            android:id="@+id/note_min_b"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(11)}"
+            android:text="b"
+            android:textColor="@{(piano.rootNote == 11 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 11 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="60"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_inner" />
+
+        <TextView
+            android:id="@+id/note_min_fs"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(6)}"
+            android:text="f♯"
+            android:textColor="@{(piano.rootNote == 6 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 6 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="90"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_inner" />
+
+        <TextView
+            android:id="@+id/note_min_cs"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(1)}"
+            android:text="c♯"
+            android:textColor="@{(piano.rootNote == 1 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 1 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="120"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_inner" />
+
+        <TextView
+            android:id="@+id/note_min_gs"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(8)}"
+            android:text="g♯"
+            android:textColor="@{(piano.rootNote == 8 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 8 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="150"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_inner" />
+
+        <TextView
+            android:id="@+id/note_min_eb"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(3)}"
+            android:text="e♭\nd♯"
+            android:textColor="@{(piano.rootNote == 3 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 3 ? @color/white : @color/lightgrey)}"
+            android:textAlignment="center"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="180"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_inner" />
+
+        <TextView
+            android:id="@+id/note_min_bb"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(10)}"
+            android:text="b♭"
+            android:textColor="@{(piano.rootNote == 10 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 10 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="210"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_inner" />
+
+        <TextView
+            android:id="@+id/note_min_f"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(5)}"
+            android:text="f"
+            android:textColor="@{(piano.rootNote == 5 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 5 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="240"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_inner" />
+
+        <TextView
+            android:id="@+id/note_min_c"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(0)}"
+            android:text="c"
+            android:textColor="@{(piano.rootNote == 0 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 0 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="270"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_inner" />
+
+        <TextView
+            android:id="@+id/note_min_g"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(7)}"
+            android:text="g"
+            android:textColor="@{(piano.rootNote == 7 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 7 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="300"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_inner" />
+
+        <TextView
+            android:id="@+id/note_min_d"
+            style="@style/circle_note"
+            android:onClick="@{() -> handler.setRoot(2)}"
+            android:text="d"
+            android:textColor="@{(piano.rootNote == 2 ? @color/colorAccent : @color/black)}"
+            android:background="@{(piano.rootNote == 2 ? @color/white : @color/lightgrey)}"
+            app:layout_constraintCircle="@id/button_ok"
+            app:layout_constraintCircleAngle="330"
+            app:layout_constraintCircleRadius="@dimen/circle_5th_inner" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

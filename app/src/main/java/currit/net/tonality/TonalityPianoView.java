@@ -15,6 +15,7 @@ import mn.tck.semitone.PianoView;
 import mn.tck.semitone.Util;
 
 public class TonalityPianoView extends PianoView {
+
     final static String PREF_SCALE = "scale";
     final static String PREF_SCALE_ROOT = "scale_root";
     final static int PREF_SCALE_DEFAULT = 0;
@@ -50,6 +51,14 @@ public class TonalityPianoView extends PianoView {
         this.sustain = sustain;
         this.labelnotes = labelnotes;
         this.labelc = labelc;
+    }
+
+    public void setRoot(int newRoot) {
+        setScale(this.scale, newRoot);
+    }
+
+    public void setScale(int newScale) {
+        setScale(newScale, this.rootNote);
     }
 
     public void setScale(int newScale, int newRoot) {
@@ -198,8 +207,17 @@ public class TonalityPianoView extends PianoView {
         invalidate();
     }
 
-    public boolean getLabelNotes() { return labelnotes; }
-    public boolean getLabelC() { return labelc; }
+    public boolean getLabelNotes() {
+        return labelnotes;
+    }
+
+    public boolean getLabelC() {
+        return labelc;
+    }
+
+    public int getRootNote() {
+        return rootNote;
+    }
 
     private boolean isBlack(int p) {
         return p % 12 == 1 || p % 12 == 3 || p % 12 == 6 || p % 12 == 8 || p % 12 == 10;

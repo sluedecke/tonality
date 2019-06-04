@@ -10,6 +10,10 @@
             android:id="@+id/menu_switch_labelc"
             android:checkable="true"
             android:title="@string/piano_labelc" />
+        <item
+            android:id="@+id/menu_switch_circleoffifths"
+            android:checkable="true"
+            android:title="@string/piano_circleoffifths" />
     </group>
 
     <group android:id="@+id/menu_other">

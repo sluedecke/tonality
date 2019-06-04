@@ -19,20 +19,30 @@ Features:
 * Stack multiple keyboards
 * Scale highlighting
 
-TODO
+=== TODO before 1.0
 
 * [x] Implement preferences dialog
 * [x] add reset button to sizing dialog
 * [x] I18N of scale names
+* [x] popups shall have a proper shadow / elevation
+* [x] fix display bug for octave right in sizing popup
+* [x] use circle of fifths to select root note
 * [-] label too high in horizontal mode
-* [ ] add more scales
+* [-] automate updating semitone
 * [ ] add nice app icon
-* [ ] fix display bug for octave right in sizing popup
-* [ ] automate updating semitone
 * [ ] automate building from scratch to ease use in f-droid
 * [ ] minify apks, strip unneeded semitone assets
-* [ ] harmonize handling of pianoview parameters in preferences (currently in PianoView and PianoFragment)
 * [ ] publish in Play Store and on f-droid
+
+=== Possible next features ... or just a bunch of ideas
+
+* [ ] highlight (and optionally label) some important intervals based on the root note
+* [ ] harmonize handling of pianoview parameters in preferences (currently in PianoView and PianoFragment)
+* [ ] grey out or hide notes which cannot be played due to missing sound file
+* [ ] create custom textviews which take note name, piano, handler and item to position around
+* [ ] add some open source synth to tonality in order to play more than audio files
+* [ ] add more scales
+
 
 .Tonality as of 2019-05-27
 image:doc/tonality-v0.2.png[]

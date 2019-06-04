@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- radius of items-->
+    <dimen name="circle_5th_outer">160dp</dimen>
+    <dimen name="circle_5th_inner">80dp</dimen>
+
+    <!-- diameter of band circle -->
+    <dimen name="circle_5th_band_separator">264dp</dimen>
+</resources>
