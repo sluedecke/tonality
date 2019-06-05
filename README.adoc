@@ -1,15 +1,20 @@
 = Tonality - a free piano
 (C) Sascha Lüdecke <sascha@currit.net>
 
+image:app/src/main/res/mipmap-xxhdpi/ic_launcher.png[]
+
 Tonality is based on:
 
-    Semitone - tuner, metronome, and piano for Android
-    Copyright (C) 2019  Andy Tockman <andy@tck.mn>
-    Official website:     https://tck.mn/semitone/
+[%hardbreaks]
+Semitone - tuner, metronome, and piano for Android
+Copyright (C) 2019  Andy Tockman <andy@tck.mn>
+Official website:     https://tck.mn/semitone/
 
 == Feature Overview
 
 Tonality provides a piano view, to allow to play on a simple piano keyboard.
+Different scales can be highlighted on the keys based on a root note to ease
+learning of a scale.
 
 Features:
 
@@ -21,15 +26,6 @@ Features:
 
 === TODO before 1.0
 
-* [x] Implement preferences dialog
-* [x] add reset button to sizing dialog
-* [x] I18N of scale names
-* [x] popups shall have a proper shadow / elevation
-* [x] fix display bug for octave right in sizing popup
-* [x] use circle of fifths to select root note
-* [x] add nice app icon
-* [-] label too high in horizontal mode
-* [-] automate updating semitone
 * [ ] automate building from scratch to ease use in f-droid
 * [ ] minify apks, strip unneeded semitone assets
 * [ ] publish in Play Store and on f-droid
@@ -63,7 +59,7 @@ the Free Software Foundation, either version 3 of the License, or
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+GNU General Public License for more details. +
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
@@ -74,9 +70,6 @@ ____
 === Build instructinos
 
 * checkout tonality
-* convert semitone into an android library (semitone/build.gradle)
-    - change build gradle plugin to library
-    - comment out application ID
 * prepare building semitone:
     . `cd semitone`
     . `./tools/build_ffmpeg.sh`
@@ -92,6 +85,9 @@ have been set up
 pull::
     * commit all changes
     * `git subtree pull --prefix semitone semitone-upstream master`
+    * convert semitone into an android library by changing semitone/build.gradle
+        - change build gradle plugin to library
+        - comment out application ID
 
 push::
     * commit all changes
