@@ -6,11 +6,13 @@
 
 image:app/src/main/res/mipmap-xxhdpi/ic_launcher.png[]
 
+Copyright (C) 2019  Sascha Lüdecke <sascha@meta-x.de>
+
 Tonality is based on:
 
 [%hardbreaks]
 Semitone - tuner, metronome, and piano for Android
-Copyright (C) 2019  Andy Tockman <andy@tck.mn>
+by Andy Tockman <andy@tck.mn>
 Official website:     https://tck.mn/semitone/
 
 == Feature Overview

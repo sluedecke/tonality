@@ -266,10 +266,22 @@
             app:layout_constraintCircleRadius="@dimen/circle_5th_inner" />
 
         <TextView
+            style="@style/circle_note"
+            android:layout_width="0dp"
+            android:background="@{(piano.rootNote == 3 ? @color/white : @color/lightgrey)}"
+            android:onClick="@{() -> handler.setRoot(3)}"
+            android:text="e♭"
+            android:textAlignment="center"
+            android:textColor="@{(piano.rootNote == 3 ? @color/colorAccent : @color/black)}"
+            app:layout_constraintBottom_toTopOf="@id/note_min_eb"
+            app:layout_constraintLeft_toLeftOf="@id/note_min_eb"
+            app:layout_constraintRight_toRightOf="@id/note_min_eb" />
+
+        <TextView
             android:id="@+id/note_min_eb"
             style="@style/circle_note"
             android:onClick="@{() -> handler.setRoot(3)}"
-            android:text="e♭\nd♯"
+            android:text="d♯"
             android:textColor="@{(piano.rootNote == 3 ? @color/colorAccent : @color/black)}"
             android:background="@{(piano.rootNote == 3 ? @color/white : @color/lightgrey)}"
             android:textAlignment="center"
