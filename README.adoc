@@ -1,5 +1,8 @@
 = Tonality - a free piano
 (C) Sascha Lüdecke <sascha@currit.net>
+:toc:
+
+== About
 
 image:app/src/main/res/mipmap-xxhdpi/ic_launcher.png[]
 
@@ -26,8 +29,8 @@ Features:
 
 === TODO before 1.0
 
-* [ ] automate building from scratch to ease use in f-droid
-* [ ] minify apks, strip unneeded semitone assets
+* [x] automate building from scratch to ease use in f-droid
+* [x] minify apks, strip unneeded semitone assets
 * [ ] publish in Play Store and on f-droid
 
 === Possible next features ... or just a bunch of ideas
@@ -70,17 +73,19 @@ ____
 === Build instructinos
 
 * checkout tonality
-* prepare building semitone:
-    . `cd semitone`
-    . `./tools/build_ffmpeg.sh`
-    . `./tools/copy_ffmpeg.sh`
+* Ensure the environment variable `ANDROID_NDK` is set
+* Ensure that gradle can call `patch` and `git`, i.e. these should be on your `PATH`
+* Prepare dependencies - this will pull git submodules and build native ffmpeg binaries
+    - `gradle setupTonalityDependencies` +
 * build tonality:
     - `gradle build`
 
 === Interaction with upstream semitone
 
+You will probably need these only as a maintainer of the project.
+
 These commands assume that remotes named `semitone-upstream` and `semitone-as-a-library`.
-have been set up
+have been set up.
 
 pull::
     * commit all changes

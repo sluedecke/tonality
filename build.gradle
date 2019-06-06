@@ -4,11 +4,11 @@ buildscript {
     repositories {
         google()
         jcenter()
-        
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.1'
-        
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -18,7 +18,37 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+
+    }
+}
+
+task setupTonalityDependencies {
+    doLast {
+        print("::: Initialize git submodules ... ")
+        exec {
+            commandLine "git", "submodule", "init"
+        }
+        println("DONE")
+
+        print("::: Patching semitone to be usable as an android library ... ")
+        exec {
+            commandLine "patch", "-p1", "<", ".doc/patch-semitone-build-gradle.diff"
+        }
+        println("DONE")
+
+        print("::: Building ffmpeg ... ")
+        exec {
+            workingDir "semitone"
+            executable "./tools/build_ffmpeg.sh"
+        }
+        println("::: Building ffmpeg ... DONE")
+
+        print("::: Copy ffmpeg into target folder ... ")
+        exec {
+            workingDir "semitone"
+            executable "./tools/copy_ffmpeg.sh"
+        }
+        println("DONE")
     }
 }
 

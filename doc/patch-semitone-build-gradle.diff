@@ -1,0 +1,23 @@
+diff --git a/semitone/build.gradle b/semitone/build.gradle
+index a9c9dcf..0c71e63 100644
+--- a/semitone/build.gradle
++++ b/semitone/build.gradle
+@@ -15,7 +15,8 @@ buildscript {
+     }
+ }
+ 
+-apply plugin: 'com.android.application'
++// apply plugin: 'com.android.application'
++apply plugin: 'com.android.library'
+ 
+ repositories {
+     mavenCentral()
+@@ -40,7 +41,7 @@ android {
+     }
+ 
+     defaultConfig {
+-        applicationId "mn.tck.semitone"
++//        applicationId "mn.tck.semitone"
+         minSdkVersion 16
+         targetSdkVersion 28
+         versionCode 3
