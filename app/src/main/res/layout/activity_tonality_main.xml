@@ -8,7 +8,7 @@
     tools:context=".TonalityMainActivity">
 
 
-    <currit.net.tonality.TonalityPianoView
+    <net.currit.tonality.TonalityPianoView
         android:id="@+id/piano"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -35,7 +35,7 @@
 
         <fragment
             android:id="@+id/piano_control_scale"
-            android:name="currit.net.tonality.PianoControlScale"
+            android:name="net.currit.tonality.PianoControlScale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

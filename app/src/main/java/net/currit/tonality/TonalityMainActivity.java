@@ -1,4 +1,4 @@
-package currit.net.tonality;
+package net.currit.tonality;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -20,7 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuCompat;
 import androidx.databinding.DataBindingUtil;
 
-import currit.net.tonality.databinding.PopupSizingBinding;
+import net.currit.tonality.databinding.PopupSizingBinding;
 import mn.tck.semitone.PianoEngine;
 
 public class TonalityMainActivity extends AppCompatActivity {

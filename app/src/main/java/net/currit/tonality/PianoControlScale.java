@@ -1,4 +1,4 @@
-package currit.net.tonality;
+package net.currit.tonality;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -18,7 +18,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
-import currit.net.tonality.databinding.PopupScaleBinding;
+import net.currit.tonality.databinding.PopupScaleBinding;
 
 
 public class PianoControlScale extends Fragment {

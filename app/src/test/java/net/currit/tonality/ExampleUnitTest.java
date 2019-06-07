@@ -1,4 +1,4 @@
-package currit.net.tonality;
+package net.currit.tonality;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package currit.net.tonality;
+package net.currit.tonality;
 
 import android.content.Context;
 import android.content.SharedPreferences;

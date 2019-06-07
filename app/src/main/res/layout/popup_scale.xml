@@ -11,11 +11,11 @@
 
         <variable
             name="piano"
-            type="currit.net.tonality.TonalityPianoView" />
+            type="net.currit.tonality.TonalityPianoView" />
 
         <variable
             name="handler"
-            type="currit.net.tonality.PianoControlScale" />
+            type="net.currit.tonality.PianoControlScale" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

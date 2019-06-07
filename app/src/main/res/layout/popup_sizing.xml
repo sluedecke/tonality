@@ -6,7 +6,7 @@
 
         <variable
             name="piano"
-            type="currit.net.tonality.TonalityPianoView" />
+            type="net.currit.tonality.TonalityPianoView" />
         <variable name="popup"
             type="android.widget.PopupWindow"/>
     </data>

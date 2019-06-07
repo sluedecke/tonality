@@ -29,12 +29,6 @@ Features:
 * Stack multiple keyboards
 * Scale highlighting
 
-=== TODO before 1.0
-
-* [x] automate building from scratch to ease use in f-droid
-* [x] minify apks, strip unneeded semitone assets
-* [ ] publish in Play Store and on f-droid
-
 === Possible next features ... or just a bunch of ideas
 
 * [ ] highlight (and optionally label) some important intervals based on the root note
@@ -45,7 +39,7 @@ Features:
 * [ ] add more scales
 
 
-.Tonality as of 2019-06-04
+=== Screenshots of Tonality (as of 2019-06-04)
 image:doc/tonality-v0.3 - 1. main.png[]
 image:doc/tonality-v0.3 - 2. sizing.png[]
 image:doc/tonality-v0.3 - 3. scale.png[]

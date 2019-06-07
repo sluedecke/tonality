@@ -1,4 +1,4 @@
-package currit.net.tonality;
+package net.currit.tonality;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("currit.net.tonality", appContext.getPackageName());
+        assertEquals("net.currit.tonality", appContext.getPackageName());
     }
 }
