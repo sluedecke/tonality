@@ -12,6 +12,14 @@ index a9c9dcf..0c71e63 100644
  
  repositories {
      mavenCentral()
+@@ -37,10 +38,11 @@ android {
+ 
+     lintOptions {
+         disable "GoogleAppIndexingWarning"
++        disable "AppCompatCustomView"
+     }
+ 
+     defaultConfig {
 @@ -40,7 +41,7 @@ android {
      }
  
