@@ -1,5 +1,5 @@
 diff --git a/semitone/build.gradle b/semitone/build.gradle
-index a9c9dcf..0c71e63 100644
+index a9c9dcf..4db0a16 100644
 --- a/semitone/build.gradle
 +++ b/semitone/build.gradle
 @@ -15,7 +15,8 @@ buildscript {
@@ -17,10 +17,6 @@ index a9c9dcf..0c71e63 100644
      lintOptions {
          disable "GoogleAppIndexingWarning"
 +        disable "AppCompatCustomView"
-     }
- 
-     defaultConfig {
-@@ -40,7 +41,7 @@ android {
      }
  
      defaultConfig {

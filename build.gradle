@@ -24,15 +24,9 @@ allprojects {
 
 task setupTonalityDependencies {
     doLast {
-        print("::: Initialize git submodules ... ")
-        exec {
-            commandLine "git", "submodule", "init"
-        }
-        println("DONE")
-
         print("::: Patching semitone to be usable as an android library ... ")
         exec {
-            commandLine "patch", "-p1", "<", ".doc/patch-semitone-build-gradle.diff"
+            commandLine "patch", "-p1", "semitone/build.gradle", "./doc/patch-semitone-build-gradle.diff"
         }
         println("DONE")
 

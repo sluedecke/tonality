@@ -18,8 +18,8 @@ Official website:     https://tck.mn/semitone/
 == Feature Overview
 
 Tonality provides a piano view, to allow to play on a simple piano keyboard.
-Different scales can be highlighted on the keys based on a root note to ease
-learning of a scale.
+Based on a root note, different scales can be highlighted on the keyboard to
+ease learning of a scale.
 
 Features:
 
