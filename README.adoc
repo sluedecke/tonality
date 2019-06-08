@@ -15,6 +15,10 @@ Semitone - tuner, metronome, and piano for Android
 by Andy Tockman <andy@tck.mn>
 Official website:     https://tck.mn/semitone/
 
+image:https://f-droid.org/badge/get-it-on.png[Get it on F-Droid, height=75]
+image:https://img.shields.io/f-droid/v/net.currit.tonality.svg[]
+image:https://img.shields.io/github/release/sluedecke/tonality.svg?logo=github[]
+
 == Feature Overview
 
 Tonality provides a piano view, to allow to play on a simple piano keyboard.
@@ -39,11 +43,15 @@ Features:
 * [ ] add more scales
 
 
-=== Screenshots of Tonality (as of 2019-06-04)
-image:doc/tonality-v0.3 - 1. main.png[]
-image:doc/tonality-v0.3 - 2. sizing.png[]
-image:doc/tonality-v0.3 - 3. scale.png[]
-image:doc/tonality-v0.3 - 4. menu.png[]
+=== Screenshots of Tonality (Version 1.1)
+
+image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.1 - 1. main.png[]
+image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.1 - 2. sizing.png[]
+image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.1 - 3. root note.png[]
+
+image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.1 - 4. scale.png[]
+image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.1 - 5. menu.png[]
+
 
 == License
 
