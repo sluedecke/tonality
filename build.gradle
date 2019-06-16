@@ -26,7 +26,7 @@ task setupTonalityDependencies {
     doLast {
         print("::: Patching semitone to be usable as an android library ... ")
         exec {
-            commandLine "patch", "-p1", "semitone/build.gradle", "./doc/patch-semitone-build-gradle.diff"
+            commandLine "patch", "--forward", "--strip=1", "semitone/build.gradle", "./doc/patch-semitone-build-gradle.diff"
         }
         println("DONE")
 

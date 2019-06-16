@@ -1,0 +1,8 @@
+= Tonality - a free piano: PRIVACY POLCY
+
+Tonality does not record any data whatsoever from you as a user.
+
+The only data stored on your device is the configuration of the keyboard
+(number of keys to be shown, selected scale, root note).  This data
+is stored on your device only using Android standard mechanisms.  This data
+does not leave your device and is not analyzed in any way.
