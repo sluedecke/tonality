@@ -24,26 +24,24 @@ image:https://img.shields.io/github/release/sluedecke/tonality.svg?logo=github[]
 
 == Feature Overview
 
-Tonality provides a piano view, to allow to play on a simple piano keyboard.
-Based on a root note, different scales can be highlighted on the keyboard to
-ease learning of a scale.
+Tonality is a simple piano keyboard.  It allows to highlight scales based on
+a root note.  This makes learning of scales much easier.
 
 Features:
 
 * Piano view to play with
+* Scale highlighting
 * Optional key labeling
 * Dynamic sizing of the keyboard
 * Stack multiple keyboards
-* Scale highlighting
 
 === Possible next features ... or just a bunch of ideas
 
 * [ ] highlight (and optionally label) some important intervals based on the root note
 * [ ] harmonize handling of pianoview parameters in preferences (currently in PianoView and PianoFragment)
 * [ ] grey out or hide notes which cannot be played due to missing sound file
-* [ ] create custom textviews which take note name, piano, handler and item to position around
 * [ ] add some open source synth to tonality in order to play more than audio files
-* [ ] add more scales
+* [ ] improve scale selection with custom dialog and scale grouping
 * [ ] add MIDI keyboard support via USB on the go
 * [ ] add metronome to piano view
 

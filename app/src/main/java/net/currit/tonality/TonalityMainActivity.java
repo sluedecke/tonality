@@ -20,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuCompat;
 import androidx.databinding.DataBindingUtil;
 
+import net.currit.tonality.databinding.ActivityTonalityMainBinding;
 import net.currit.tonality.databinding.PopupSizingBinding;
 import mn.tck.semitone.PianoEngine;
 
@@ -28,11 +29,12 @@ public class TonalityMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_tonality_main);
+        final ActivityTonalityMainBinding activityBinding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.activity_tonality_main, null, false);
+        activityBinding.setPiano(activityBinding.piano);
+
+        setContentView(activityBinding.getRoot());
 
         PianoEngine.create(this);
-
-        final TonalityPianoView piano = findViewById(R.id.piano);
 
         // initialize our PianoView
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
@@ -42,7 +44,7 @@ public class TonalityMainActivity extends AppCompatActivity {
         } catch (NumberFormatException e) {
             concert_a = 440;
         }
-        piano.setup(concert_a,
+        activityBinding.piano.setup(concert_a,
                 sp.getBoolean("sustain", false),
                 sp.getBoolean("labelnotes", true),
                 sp.getBoolean("labelc", true)
@@ -51,16 +53,15 @@ public class TonalityMainActivity extends AppCompatActivity {
         // setup scale UI elements
         final PianoControlScale scaleController;
         scaleController = (PianoControlScale) getSupportFragmentManager().findFragmentById(R.id.piano_control_scale);
-        scaleController.setPiano(piano);
+        scaleController.setPiano(activityBinding.piano);
 
         // configure popup_sizing popup
-        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        PopupSizingBinding binding = DataBindingUtil.inflate(inflater, R.layout.popup_sizing, null, false);
+        PopupSizingBinding binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.popup_sizing, null, false);
         final PopupWindow popup = new PopupWindow(binding.getRoot(), ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             popup.setElevation(20);
         }
-        binding.setPiano(piano);
+        binding.setPiano(activityBinding.piano);
         binding.setPopup(popup);
         final View sizingButton = findViewById(R.id.button_sizing);
         sizingButton.setOnClickListener(new View.OnClickListener() {
@@ -87,8 +88,8 @@ public class TonalityMainActivity extends AppCompatActivity {
 
                 // enable/disable menu entries
                 Menu m = popupMenu.getMenu();
-                m.findItem(R.id.menu_switch_labelnotes).setChecked(piano.getLabelNotes());
-                m.findItem(R.id.menu_switch_labelc).setChecked(piano.getLabelC()).setEnabled(piano.getLabelNotes());
+                m.findItem(R.id.menu_switch_labelnotes).setChecked(activityBinding.piano.getLabelNotes());
+                m.findItem(R.id.menu_switch_labelc).setChecked(activityBinding.piano.getLabelC()).setEnabled(activityBinding.piano.getLabelNotes());
                 m.findItem(R.id.menu_switch_circleoffifths).setChecked(scaleController.isUseCircleOfFifthSelector());
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -99,10 +100,10 @@ public class TonalityMainActivity extends AppCompatActivity {
                                 startActivity(new Intent(getApplicationContext(), AboutTonalityActivity.class));
                                 return true;
                             case R.id.menu_switch_labelnotes:
-                                piano.toggleLabelNotes();
+                                activityBinding.piano.toggleLabelNotes();
                                 return true;
                             case R.id.menu_switch_labelc:
-                                piano.toggleLabelC();
+                                activityBinding.piano.toggleLabelC();
                                 return true;
                             case R.id.menu_switch_circleoffifths:
                                 scaleController.toggleCircleOfFifthsSelector();

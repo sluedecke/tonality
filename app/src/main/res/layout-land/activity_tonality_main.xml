@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".TonalityMainActivity">
 
 
@@ -17,8 +17,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:padding="4dp">
 
         <ImageButton
@@ -28,10 +28,26 @@
             android:backgroundTint="@color/colorPrimary"
             android:src="@drawable/icon_sizing" />
 
+        <ImageButton
+            android:id="@+id/keys_octave_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="@{piano::octaveLeft}"
+            android:src="@drawable/icon_backward" />
+
+        <ImageButton
+            android:id="@+id/keys_octave_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:onClick="@{piano::octaveRight}"
+            android:src="@drawable/icon_forward" />
+
         <Space
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
         <fragment
             android:id="@+id/piano_control_scale"
@@ -41,14 +57,14 @@
 
         <Space
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
         <ImageButton
             android:id="@+id/button_more"
-            android:backgroundTint="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icon_more"/>
+            android:backgroundTint="@color/white"
+            android:src="@drawable/icon_more" />
     </LinearLayout>
 </LinearLayout>
