@@ -20,11 +20,11 @@
     <string name="scale_pentatonic_minor">Pentatonic Minor</string>
 
     <!-- Greek scales -->
-    <string name="scale_ionian">Ionian</string>
-    <string name="scale_dorian">Dorian</string>
-    <string name="scale_phrygian">Phrygian</string>
-    <string name="scale_lydian">Lydian</string>
-    <string name="scale_mixolydian">Myxolydian</string>
-    <string name="scale_aeolian">Aeolian</string>
-    <string name="scale_locrian">Locrian</string>
+    <string name="scale_ionian">Greek: Ionian</string>
+    <string name="scale_dorian">Greek: Dorian</string>
+    <string name="scale_phrygian">Greek: Phrygian</string>
+    <string name="scale_lydian">Greek: Lydian</string>
+    <string name="scale_mixolydian">Greek: Myxolydian</string>
+    <string name="scale_aeolian">Greek: Aeolian</string>
+    <string name="scale_locrian">Greek: Locrian</string>
 </resources>

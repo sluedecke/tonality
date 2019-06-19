@@ -36,7 +36,7 @@
                 android:id="@+id/button_sizing"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:elevation="4dp"
+                android:elevation="@dimen/image_button_elevation"
                 android:backgroundTint="@color/colorPrimary"
                 android:src="@drawable/icon_sizing" />
 
@@ -44,7 +44,7 @@
                 android:id="@+id/keys_octave_down"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:elevation="4dp"
+                android:elevation="@dimen/image_button_elevation"
                 android:backgroundTint="@color/colorPrimary"
                 android:onClick="@{piano::octaveLeft}"
                 android:src="@drawable/icon_backward" />
@@ -53,7 +53,7 @@
                 android:id="@+id/keys_octave_up"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:elevation="4dp"
+                android:elevation="@dimen/image_button_elevation"
                 android:backgroundTint="@color/colorPrimary"
                 android:onClick="@{piano::octaveRight}"
                 android:src="@drawable/icon_forward" />

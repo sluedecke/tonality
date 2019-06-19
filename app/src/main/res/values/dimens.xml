@@ -6,4 +6,6 @@
 
     <!-- diameter of band circle -->
     <dimen name="circle_5th_band_separator">245dp</dimen>
+
+    <dimen name="image_button_elevation">2dp</dimen>
 </resources>

@@ -7,8 +7,10 @@
         <variable
             name="piano"
             type="net.currit.tonality.TonalityPianoView" />
-        <variable name="popup"
-            type="android.widget.PopupWindow"/>
+
+        <variable
+            name="popup"
+            type="android.widget.PopupWindow" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,13 +20,13 @@
 
         <TextView
             android:id="@+id/popup_title"
+            style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="360dp"
             android:layout_height="48dp"
             android:background="@color/colorPrimaryDark"
-            android:text="Adjust Keyboard"
             android:gravity="center"
+            android:text="Adjust Keyboard"
             android:textColor="@color/white"
-            style="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -45,22 +47,22 @@
                 android:src="@drawable/piano_rows" />
 
             <ImageButton
-                android:id="@+id/rows_add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:elevation="4dp"
-                android:backgroundTint="@color/colorPrimary"
-                android:onClick="@{piano::addRow}"
-                android:src="@drawable/icon_add" />
-
-            <ImageButton
                 android:id="@+id/rows_remove"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:elevation="4dp"
                 android:backgroundTint="@color/colorPrimary"
+                android:elevation="@dimen/image_button_elevation"
                 android:onClick="@{piano::removeRow}"
                 android:src="@drawable/icon_remove" />
+
+            <ImageButton
+                android:id="@+id/rows_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:elevation="@dimen/image_button_elevation"
+                android:onClick="@{piano::addRow}"
+                android:src="@drawable/icon_add" />
         </LinearLayout>
 
         <LinearLayout
@@ -78,30 +80,31 @@
                 android:backgroundTint="@color/colorPrimaryDark"
                 android:src="@drawable/piano_keys" />
 
-            <ImageButton
-                android:id="@+id/keys_add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:elevation="4dp"
-                android:backgroundTint="@color/colorPrimary"
-                android:onClick="@{piano::addKey}"
-                android:src="@drawable/icon_add" />
 
             <ImageButton
                 android:id="@+id/keys_remove"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="4dp"
                 android:backgroundTint="@color/colorPrimary"
+                android:elevation="@dimen/image_button_elevation"
                 android:onClick="@{piano::removeKey}"
                 android:src="@drawable/icon_remove" />
+
+            <ImageButton
+                android:id="@+id/keys_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:elevation="@dimen/image_button_elevation"
+                android:onClick="@{piano::addKey}"
+                android:src="@drawable/icon_add" />
 
             <ImageButton
                 android:id="@+id/keys_octave_down"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="4dp"
                 android:backgroundTint="@color/colorPrimary"
+                android:elevation="@dimen/image_button_elevation"
                 android:onClick="@{piano::octaveLeft}"
                 android:src="@drawable/icon_backward" />
 
@@ -109,8 +112,8 @@
                 android:id="@+id/keys_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="4dp"
                 android:backgroundTint="@color/colorPrimary"
+                android:elevation="@dimen/image_button_elevation"
                 android:onClick="@{piano::pitchLeft}"
                 android:src="@drawable/arrow_left" />
 
@@ -118,8 +121,8 @@
                 android:id="@+id/keys_right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="4dp"
                 android:backgroundTint="@color/colorPrimary"
+                android:elevation="@dimen/image_button_elevation"
                 android:onClick="@{piano::pitchRight}"
                 android:src="@drawable/arrow_right" />
 
@@ -127,8 +130,8 @@
                 android:id="@+id/keys_octave_up"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="4dp"
                 android:backgroundTint="@color/colorPrimary"
+                android:elevation="@dimen/image_button_elevation"
                 android:onClick="@{piano::octaveRight}"
                 android:src="@drawable/icon_forward" />
         </LinearLayout>
@@ -137,9 +140,9 @@
             android:id="@+id/button_reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{piano::resetPiano}"
             android:text="@string/reset_keyboard"
             android:textAllCaps="false"
-            android:onClick="@{piano::resetPiano}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/group_key" />
 
@@ -148,10 +151,10 @@
             android:id="@+id/button_ok"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorAccent"
+            android:onClick="@{() -> popup.dismiss()}"
             android:text="@android:string/ok"
             android:textAllCaps="false"
-            android:onClick="@{() -> popup.dismiss()}"
-            android:backgroundTint="@color/colorAccent"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/group_key" />

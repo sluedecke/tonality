@@ -1,70 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
-    tools:context=".TonalityMainActivity">
 
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <net.currit.tonality.TonalityPianoView
-        android:id="@+id/piano"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+    <data>
+
+        <variable
+            name="piano"
+            type="net.currit.tonality.TonalityPianoView" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="4dp">
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".TonalityMainActivity">
 
-        <ImageButton
-            android:id="@+id/button_sizing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary"
-            android:src="@drawable/icon_sizing" />
 
-        <ImageButton
-            android:id="@+id/keys_octave_down"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary"
-            android:onClick="@{piano::octaveLeft}"
-            android:src="@drawable/icon_backward" />
-
-        <ImageButton
-            android:id="@+id/keys_octave_up"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary"
-            android:onClick="@{piano::octaveRight}"
-            android:src="@drawable/icon_forward" />
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+        <net.currit.tonality.TonalityPianoView
+            android:id="@+id/piano"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <fragment
-            android:id="@+id/piano_control_scale"
-            android:name="net.currit.tonality.PianoControlScale"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <ImageButton
-            android:id="@+id/button_more"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:src="@drawable/icon_more" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <ImageButton
+                android:id="@+id/button_sizing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:src="@drawable/icon_sizing" />
+
+            <ImageButton
+                android:id="@+id/keys_octave_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="@{piano::octaveLeft}"
+                android:src="@drawable/icon_backward" />
+
+            <ImageButton
+                android:id="@+id/keys_octave_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimary"
+                android:onClick="@{piano::octaveRight}"
+                android:src="@drawable/icon_forward" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <fragment
+                android:id="@+id/piano_control_scale"
+                android:name="net.currit.tonality.PianoControlScale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <ImageButton
+                android:id="@+id/button_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/icon_more" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</layout>

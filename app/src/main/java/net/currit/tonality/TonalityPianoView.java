@@ -167,12 +167,12 @@ public class TonalityPianoView extends PianoView {
     }
 
     public void pitchLeft(View v) {
-        if (pitch > 7) --pitch;
+        if (pitch < 49) ++pitch;
         updateParams(true);
     }
 
     public void pitchRight(View v) {
-        if (pitch < 49) ++pitch;
+        if (pitch > 7) --pitch;
         updateParams(true);
     }
 
