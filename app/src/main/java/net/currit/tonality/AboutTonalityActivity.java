@@ -14,6 +14,11 @@ public class AboutTonalityActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_about_tonality);
 
+        String title = getString(R.string.app_name);
+        title += " " + BuildConfig.VERSION_NAME;
+
+        setTitle(title);
+
         WebView wv = (WebView) findViewById(R.id.about_tonality);
         wv.loadUrl("file:///android_asset/" + getResources().getString(R.string.about_tonality_file));
         wv.setBackgroundColor(Color.TRANSPARENT);
