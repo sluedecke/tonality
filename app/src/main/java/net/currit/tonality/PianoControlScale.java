@@ -29,8 +29,8 @@ public class PianoControlScale extends Fragment {
     private TonalityMainActivity activity;
     private PopupWindow popup;
 
-    private Button rootNote;
-    private Button scaleName;
+    private Button rootNoteButton;
+    private Button scaleNameButton;
 
     private String[] noteNames;
     private String[] scaleNames;
@@ -44,8 +44,9 @@ public class PianoControlScale extends Fragment {
 
     public void setPiano(TonalityPianoView piano) {
         this.piano = piano;
-        rootNote.setText(noteNames[piano.rootNote]);
-        scaleName.setText(scaleNames[piano.scale]);
+        rootNoteButton.setText(noteNames[piano.rootNote]);
+        rootNoteButton.setEnabled(piano.scale != 0);
+        scaleNameButton.setText(scaleNames[piano.scale]);
     }
 
     @Override
@@ -75,8 +76,8 @@ public class PianoControlScale extends Fragment {
         setupNoteSelector(view);
 
         // setup scale dialog
-        scaleName = view.findViewById(R.id.button_scale);
-        scaleName.setOnClickListener(new View.OnClickListener() {
+        scaleNameButton = view.findViewById(R.id.button_scale);
+        scaleNameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(activity);
@@ -85,7 +86,8 @@ public class PianoControlScale extends Fragment {
                 builder.setItems(scaleNames, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int item) {
                         piano.setScale(item);
-                        scaleName.setText(scaleNames[item]);
+                        scaleNameButton.setText(scaleNames[item]);
+                        rootNoteButton.setEnabled(item != 0);
                     }
                 });
 
@@ -111,7 +113,7 @@ public class PianoControlScale extends Fragment {
     private void setupNoteSelector(View rootView) {
 
         // setup root note dialog
-        rootNote = rootView.findViewById(R.id.button_root_note);
+        rootNoteButton = rootView.findViewById(R.id.button_root_note);
 
         if (useCircleOfFifthSelector) {
             // configure scale popup
@@ -122,8 +124,8 @@ public class PianoControlScale extends Fragment {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 popup.setElevation(20);
             }
-            rootNote = rootView.findViewById(R.id.button_root_note);
-            rootNote.setOnClickListener(new View.OnClickListener() {
+            rootNoteButton = rootView.findViewById(R.id.button_root_note);
+            rootNoteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (popup.isShowing())
@@ -133,12 +135,12 @@ public class PianoControlScale extends Fragment {
                         binding.setPiano(piano);
 
                         // TODO: 2019-05-27 close with back
-                        popup.showAtLocation(rootNote, Gravity.CENTER, 0, 0);
+                        popup.showAtLocation(rootNoteButton, Gravity.CENTER, 0, 0);
                     }
                 }
             });
         } else {
-            rootNote.setOnClickListener(new View.OnClickListener() {
+            rootNoteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(activity);
@@ -147,7 +149,7 @@ public class PianoControlScale extends Fragment {
                     builder.setItems(noteNames, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int item) {
                             piano.setRoot(item);
-                            rootNote.setText(noteNames[item]);
+                            rootNoteButton.setText(noteNames[item]);
                         }
                     });
 
@@ -165,6 +167,6 @@ public class PianoControlScale extends Fragment {
     public void setRoot(int newRoot) {
         piano.setRoot(newRoot);
         popup.dismiss();
-        rootNote.setText(noteNames[piano.rootNote]);
+        rootNoteButton.setText(noteNames[piano.rootNote]);
     }
 }

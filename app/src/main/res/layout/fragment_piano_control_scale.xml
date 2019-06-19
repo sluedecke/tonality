@@ -5,16 +5,6 @@
     android:orientation="horizontal">
 
     <Button
-        android:id="@+id/button_root_note"
-        android:layout_width="96dp"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textAllCaps="false"
-        android:backgroundTint="@color/colorPrimary"
-        android:textColor="@color/white"
-        android:text="F#" />
-
-    <Button
         android:id="@+id/button_scale"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -24,4 +14,14 @@
         android:backgroundTint="@color/colorPrimary"
         android:textColor="@color/white"
         android:text="Pentatonic Major"/>
+
+    <Button
+        android:id="@+id/button_root_note"
+        android:layout_width="96dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:text="F#" />
 </LinearLayout>
