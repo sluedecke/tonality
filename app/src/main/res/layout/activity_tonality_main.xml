@@ -35,14 +35,16 @@
             <ImageButton
                 android:id="@+id/button_sizing"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:elevation="4dp"
                 android:backgroundTint="@color/colorPrimary"
                 android:src="@drawable/icon_sizing" />
 
             <ImageButton
                 android:id="@+id/keys_octave_down"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:elevation="4dp"
                 android:backgroundTint="@color/colorPrimary"
                 android:onClick="@{piano::octaveLeft}"
                 android:src="@drawable/icon_backward" />
@@ -50,7 +52,8 @@
             <ImageButton
                 android:id="@+id/keys_octave_up"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:elevation="4dp"
                 android:backgroundTint="@color/colorPrimary"
                 android:onClick="@{piano::octaveRight}"
                 android:src="@drawable/icon_forward" />
@@ -74,7 +77,7 @@
             <ImageButton
                 android:id="@+id/button_more"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:backgroundTint="@color/white"
                 android:src="@drawable/icon_more" />
         </LinearLayout>
