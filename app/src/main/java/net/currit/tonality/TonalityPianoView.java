@@ -18,19 +18,27 @@ public class TonalityPianoView extends PianoView {
 
     final static String PREF_SCALE = "scale";
     final static String PREF_SCALE_ROOT = "scale_root";
+    final static String PREF_LABEL_INTERVALS = "label_intervals";
     final static int PREF_SCALE_DEFAULT = 0;
     final static int PREF_SCALE_ROOT_DEFAULT = 0;
+    final static boolean PREF_LABEL_INTERVALS_DEFAULT = true;
 
-    public int scale = PREF_SCALE_DEFAULT;
-    public int rootNote = PREF_SCALE_ROOT_DEFAULT;
-    Paint whiteScalePaint, blackScalePaint;
-    Paint whiteScalePaintRoot, blackScalePaintRoot;
-    Paint[] scaleColors;
+    protected int scale = PREF_SCALE_DEFAULT;
+    protected int rootNote = PREF_SCALE_ROOT_DEFAULT;
+    protected boolean labelIntervals = PREF_LABEL_INTERVALS_DEFAULT;
+
+    private Paint whiteScalePaint, blackScalePaint;
+    private Paint whiteScalePaintRoot, blackScalePaintRoot;
+    private Paint intervalWhitePaint, intervalBlackPaint;
+    private Paint[] scaleColors;
+
+    private String[] intervalNames;
+    private String[] noteNames;
 
     public TonalityPianoView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
+        // setup colors
         whiteScalePaint = new Paint();
         whiteScalePaint.setColor(ContextCompat.getColor(getContext(), R.color.whiteScale));
         blackScalePaint = new Paint();
@@ -39,18 +47,28 @@ public class TonalityPianoView extends PianoView {
         whiteScalePaintRoot.setColor(ContextCompat.getColor(getContext(), R.color.whiteScaleRoot));
         blackScalePaintRoot = new Paint();
         blackScalePaintRoot.setColor(ContextCompat.getColor(getContext(), R.color.blackScaleRoot));
+        intervalWhitePaint = new Paint();
+        intervalWhitePaint.setColor(ContextCompat.getColor(getContext(), R.color.intervalWhiteLabel));
+        intervalBlackPaint = new Paint();
+        intervalBlackPaint.setColor(ContextCompat.getColor(getContext(), R.color.intervalBlackLabel));
 
+        // initialize from preferences
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
         setScale(sp.getInt(PREF_SCALE, PREF_SCALE_DEFAULT), sp.getInt(PREF_SCALE_ROOT, PREF_SCALE_ROOT_DEFAULT));
+        sustain = sp.getBoolean("sustain", false);
+        labelnotes = sp.getBoolean("labelnotes", true);
+        labelc = sp.getBoolean("labelc", true);
+        labelIntervals = sp.getBoolean(TonalityPianoView.PREF_LABEL_INTERVALS, TonalityPianoView.PREF_LABEL_INTERVALS_DEFAULT);
+        concert_a = 440; // set a default to avoid DIV0 errors
+        try {
+            concert_a = Integer.parseInt(sp.getString("concert_a", "440"));
+        } catch (NumberFormatException e) {
+            concert_a = 440;
+        }
 
-        this.concert_a = 440; // set a default to avoid DIV0 errors
-
-    }
-
-    public void setup(int concert_a, boolean sustain, boolean labelnotes, boolean labelc) {
-        this.concert_a = concert_a;
-        this.sustain = sustain;
-        this.labelnotes = labelnotes;
-        this.labelc = labelc;
+        // get interval and note names for labelling
+        intervalNames = getResources().getStringArray(R.array.intervalNames);
+        noteNames = getResources().getStringArray(R.array.noteNames);
     }
 
     public void setRoot(int newRoot) {
@@ -105,27 +123,50 @@ public class TonalityPianoView extends PianoView {
         whiteHeight = height / rows;
         blackWidth = whiteWidth * 2 / 3;
         blackHeight = whiteHeight / 2;
+        // TODO: 2019-06-21 reduce text size in landscape by 30%
         blackPaint.setTextSize(Util.maxTextSize("G0", whiteWidth * 2 / 3));
+        intervalWhitePaint.setTextSize(Util.maxTextSize("P1", whiteWidth * 1 / 4));
+        intervalBlackPaint.setTextSize(Util.maxTextSize("P1", whiteWidth * 1 / 4));
 
         for (int row = 0; row < rows; ++row) {
             for (int key = 0; key < keys; ++key) {
                 int x = whiteWidth * key, y = whiteHeight * row;
                 int p = pitches[row][key];
 
+                // key frame
                 canvas.drawRect(x, y, x + whiteWidth, y + whiteHeight - YPAD, grey3Paint);
+                // white key
                 canvas.drawRect(x + OUTLINE, y + OUTLINE, x + whiteWidth - OUTLINE,
                         y + whiteHeight - OUTLINE * 2 - YPAD,
                         pressed[p] ? grey4Paint : scaleColors[p % 12]);
 
                 // draw labels if labelnotes is true and either labelc is "off" or we are at a C note
                 if (labelnotes && (!labelc || p % 12 == 0)) canvas.drawText(
-                        Util.notenames[(p + 3) % 12] + (p / 12 - 1),
+                        noteNames[p % 12] + (p / 12 - 1),
                         x + whiteWidth / 2, y + whiteHeight * 4 / 5, blackPaint);
 
-                if (hasBlackLeft(p)) canvas.drawRect(
-                        x, y,
-                        x + blackWidth / 2, y + blackHeight,
-                        pressed[p - 1] ? grey1Paint : scaleColors[(p - 1) % 12]);
+                // draw interval names on white keys
+                if (labelIntervals) {
+                    canvas.drawText(intervalNames[(p - rootNote) % 12],
+                            x + whiteWidth / 2,
+                            y + whiteHeight - 2 * YPAD,
+                            intervalWhitePaint);
+                }
+
+                // black keys
+                if (hasBlackLeft(p)) {
+                    canvas.drawRect(
+                            x, y,
+                            x + blackWidth / 2, y + blackHeight,
+                            pressed[p - 1] ? grey1Paint : scaleColors[(p - 1) % 12]);
+                    // draw interval names on black keys
+                    if (labelIntervals) {
+                        canvas.drawText(intervalNames[(p - rootNote - 1) % 12],
+                                x,
+                                y + blackHeight - YPAD,
+                                intervalBlackPaint);
+                    }
+                }
                 if (hasBlackRight(p)) canvas.drawRect(
                         x + whiteWidth - blackWidth / 2, y,
                         x + whiteWidth, y + blackHeight,
@@ -207,16 +248,33 @@ public class TonalityPianoView extends PianoView {
         invalidate();
     }
 
-    public boolean getLabelNotes() {
+    public void toggleLabelIntervals() {
+        labelIntervals = !labelIntervals;
+        SharedPreferences.Editor editor =
+                androidx.preference.PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+        editor.putBoolean(PREF_LABEL_INTERVALS, labelIntervals);
+        editor.apply();
+        invalidate();
+    }
+
+    public boolean isLabelNotes() {
         return labelnotes;
     }
 
-    public boolean getLabelC() {
+    public boolean isLabelC() {
         return labelc;
+    }
+
+    public int getScale() {
+        return scale;
     }
 
     public int getRootNote() {
         return rootNote;
+    }
+
+    public boolean isLabelIntervals() {
+        return labelIntervals;
     }
 
     private boolean isBlack(int p) {

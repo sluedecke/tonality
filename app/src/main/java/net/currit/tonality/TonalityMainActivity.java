@@ -1,12 +1,9 @@
 package net.currit.tonality;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,20 +32,6 @@ public class TonalityMainActivity extends AppCompatActivity {
         setContentView(activityBinding.getRoot());
 
         PianoEngine.create(this);
-
-        // initialize our PianoView
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-        int concert_a;
-        try {
-            concert_a = Integer.parseInt(sp.getString("concert_a", "440"));
-        } catch (NumberFormatException e) {
-            concert_a = 440;
-        }
-        activityBinding.piano.setup(concert_a,
-                sp.getBoolean("sustain", false),
-                sp.getBoolean("labelnotes", true),
-                sp.getBoolean("labelc", true)
-        );
 
         // setup scale UI elements
         final PianoControlScale scaleController;
@@ -88,9 +71,10 @@ public class TonalityMainActivity extends AppCompatActivity {
 
                 // enable/disable menu entries
                 Menu m = popupMenu.getMenu();
-                m.findItem(R.id.menu_switch_labelnotes).setChecked(activityBinding.piano.getLabelNotes());
-                m.findItem(R.id.menu_switch_labelc).setChecked(activityBinding.piano.getLabelC()).setEnabled(activityBinding.piano.getLabelNotes());
+                m.findItem(R.id.menu_switch_labelnotes).setChecked(activityBinding.piano.isLabelNotes());
+                m.findItem(R.id.menu_switch_labelc).setChecked(activityBinding.piano.isLabelC()).setEnabled(activityBinding.piano.isLabelNotes());
                 m.findItem(R.id.menu_switch_circleoffifths).setChecked(scaleController.isUseCircleOfFifthSelector());
+                m.findItem(R.id.menu_switch_labelintervals).setChecked(activityBinding.piano.isLabelIntervals());
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -104,6 +88,9 @@ public class TonalityMainActivity extends AppCompatActivity {
                                 return true;
                             case R.id.menu_switch_labelc:
                                 activityBinding.piano.toggleLabelC();
+                                return true;
+                            case R.id.menu_switch_labelintervals:
+                                activityBinding.piano.toggleLabelIntervals();
                                 return true;
                             case R.id.menu_switch_circleoffifths:
                                 scaleController.toggleCircleOfFifthsSelector();

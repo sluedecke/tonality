@@ -15,12 +15,14 @@ Semitone - tuner, metronome, and piano for Android
 by Andy Tockman <andy@tck.mn>
 Official website:     https://tck.mn/semitone/
 
+
 === Getting Tonality
 
 image:https://f-droid.org/badge/get-it-on.png[Get it on F-Droid, height=75]
 
 image:https://img.shields.io/f-droid/v/net.currit.tonality.svg[]
 image:https://img.shields.io/github/release/sluedecke/tonality.svg?logo=github[]
+
 
 == Feature Overview
 
@@ -32,27 +34,34 @@ Features:
 * Piano view to play with
 * Scale highlighting
 * Optional key labeling
+* Optional interval labeling based on root note
 * Dynamic sizing of the keyboard
 * Stack multiple keyboards
 
+
+=== Screenshots of Tonality (Version 1.2)
+
+image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 1. main.png[]
+image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 2. scale selection.png[]
+image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 3. scale highlight.png[]
+image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 4. root note selection.png[]
+image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 5. scaled 2.png[]
+image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 6. more menu.png[]
+image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 7. interval labels.png[]
+image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 8. sizing popup.png[]
+
+
 === Possible next features ... or just a bunch of ideas
 
-* [ ] highlight (and optionally label) some important intervals based on the root note
 * [ ] harmonize handling of pianoview parameters in preferences (currently in PianoView and PianoFragment)
 * [ ] grey out or hide notes which cannot be played due to missing sound file
 * [ ] add some open source synth to tonality in order to play more than audio files
 * [ ] improve scale selection with custom dialog and scale grouping
 * [ ] add MIDI keyboard support via USB on the go
 * [ ] add metronome to piano view
+* [ ] automate with triple-t
+* [ ] automate screenshot generation combined with espresso UI testing
 
-
-=== Screenshots of Tonality (Version 1.1)
-
-image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.1 - 1. main.png[]
-image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.1 - 2. sizing.png[]
-image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.1 - 3. root note.png[]
-image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.1 - 4. scale.png[]
-image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.1 - 5. menu.png[]
 
 
 == License
@@ -74,7 +83,9 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ____
 
+
 == Development
+
 
 === Build instructinos
 
@@ -85,6 +96,7 @@ ____
     - `gradle setupTonalityDependencies` +
 * build tonality:
     - `gradle build`
+
 
 === Interaction with upstream semitone
 

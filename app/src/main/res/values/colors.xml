@@ -14,4 +14,6 @@
     <color name="blackScale">#8B6200</color>
     <color name="whiteScaleRoot">#D1A148</color>
     <color name="blackScaleRoot">#D1A148</color>
+    <color name="intervalWhiteLabel">#8b0000</color>
+    <color name="intervalBlackLabel">#ffffff</color>
 </resources>

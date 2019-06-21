@@ -17,6 +17,20 @@
         <item>@string/scale_aeolian</item>
         <item>@string/scale_locrian</item>
     </string-array>
+    <string-array name="intervalNames">
+        <item>P1</item>
+        <item>m2</item>
+        <item>M2</item>
+        <item>m3</item>
+        <item>M3</item>
+        <item>P4</item>
+        <item> </item>
+        <item>P5</item>
+        <item>m6</item>
+        <item>M6</item>
+        <item>m7</item>
+        <item>M7</item>
+    </string-array>
     <string-array name="noteNames">
         <item>C</item>
         <item>C♯ / D♭</item>
