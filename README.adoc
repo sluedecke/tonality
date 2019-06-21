@@ -61,6 +61,7 @@ image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 8. 
 * [ ] add metronome to piano view
 * [ ] automate with triple-t
 * [ ] automate screenshot generation combined with espresso UI testing
+* [ ] add link to google play, fix link to f-droid once published there
 
 
 

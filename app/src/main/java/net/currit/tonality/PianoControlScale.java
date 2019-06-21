@@ -45,7 +45,6 @@ public class PianoControlScale extends Fragment {
     public void setPiano(TonalityPianoView piano) {
         this.piano = piano;
         rootNoteButton.setText(noteNames[piano.getRootNote()]);
-        adjustRootNoteButton();
         scaleNameButton.setText(scaleNames[piano.getScale()]);
     }
 
@@ -87,7 +86,6 @@ public class PianoControlScale extends Fragment {
                     public void onClick(DialogInterface dialog, int item) {
                         piano.setScale(item);
                         scaleNameButton.setText(scaleNames[item]);
-                        adjustRootNoteButton();
                     }
                 });
 
@@ -168,10 +166,5 @@ public class PianoControlScale extends Fragment {
         piano.setRoot(newRoot);
         popup.dismiss();
         rootNoteButton.setText(noteNames[piano.getRootNote()]);
-    }
-
-    private void adjustRootNoteButton() {
-        // TODO: 2019-06-19 make disabled status more visible by greying out the button
-        rootNoteButton.setEnabled(piano.getScale() != 0);
     }
 }

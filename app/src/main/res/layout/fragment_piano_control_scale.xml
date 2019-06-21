@@ -5,23 +5,24 @@
     android:orientation="horizontal">
 
     <Button
+        android:id="@+id/button_root_note"
+        android:layout_width="84dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimary"
+        android:gravity="center"
+        android:text="F#"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+    <Button
         android:id="@+id/button_scale"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:gravity="center"
-        android:textAllCaps="false"
         android:backgroundTint="@color/colorPrimary"
-        android:textColor="@color/white"
-        android:text="Pentatonic Major"/>
+        android:gravity="center"
+        android:text="Pentatonic Major"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
 
-    <Button
-        android:id="@+id/button_root_note"
-        android:layout_width="84dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textAllCaps="false"
-        android:backgroundTint="@color/colorPrimary"
-        android:textColor="@color/white"
-        android:text="F#" />
 </LinearLayout>
