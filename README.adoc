@@ -6,6 +6,9 @@
 
 image:app/src/main/res/mipmap-xxhdpi/ic_launcher.png[]
 
+Tonality is a simple piano keyboard.  It allows to highlight scales based on
+a root note and can label intervals for you.  This makes learning of scales much easier.
+
 Copyright (C) 2019  Sascha Lüdecke <sascha@meta-x.de>
 
 Tonality is based on:
@@ -18,7 +21,8 @@ Official website:     https://tck.mn/semitone/
 
 === Getting Tonality
 
-image:https://f-droid.org/badge/get-it-on.png[Get it on F-Droid, height=75]
+// image:https://f-droid.org/badge/get-it-on.png[Get it on F-Droid, height=75]
+image:https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png[link="https://play.google.com/store/apps/details?id=net.currit.tonality", Get it on Google Play, height=75]
 
 image:https://img.shields.io/f-droid/v/net.currit.tonality.svg[]
 image:https://img.shields.io/github/release/sluedecke/tonality.svg?logo=github[]
@@ -27,7 +31,7 @@ image:https://img.shields.io/github/release/sluedecke/tonality.svg?logo=github[]
 == Feature Overview
 
 Tonality is a simple piano keyboard.  It allows to highlight scales based on
-a root note.  This makes learning of scales much easier.
+a root note and can label intervals for you.  This makes learning of scales much easier.
 
 Features:
 
