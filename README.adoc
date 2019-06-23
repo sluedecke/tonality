@@ -25,8 +25,9 @@ Official website:     https://tck.mn/semitone/
 image:https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png[link="https://play.google.com/store/apps/details?id=net.currit.tonality", Get it on Google Play, height=75]
 
 image:https://img.shields.io/f-droid/v/net.currit.tonality.svg[]
-image:https://img.shields.io/github/release/sluedecke/tonality.svg?logo=github[]
-
+image:https://img.shields.io/github/tag/sluedecke/tonality.svg?logo=github[Latest tag]
+image:https://img.shields.io/github/issues/sluedecke/tonality.svg?logo=github["Tonality issues",link="https://github.com/sluedecke/tonality/issues"]
+image:https://img.shields.io/github/license/sluedecke/tonality.svg?logo=github["Tonality license",link="https://github.com/sluedecke/tonality/blob/master/LICENSE"]
 
 == Feature Overview
 
