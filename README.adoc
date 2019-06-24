@@ -46,14 +46,14 @@ Features:
 
 === Screenshots of Tonality (Version 1.2)
 
-image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 1. main.png[]
-image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 2. scale selection.png[]
-image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 3. scale highlight.png[]
-image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 4. root note selection.png[]
-image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 5. scaled 2.png[]
-image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 6. more menu.png[]
-image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 7. interval labels.png[]
-image:app/src/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 8. sizing popup.png[]
+image:app/src/main/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 1. main.png[]
+image:app/src/main/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 2. scale selection.png[]
+image:app/src/main/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 3. scale highlight.png[]
+image:app/src/main/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 4. root note selection.png[]
+image:app/src/main/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 5. scaled 2.png[]
+image:app/src/main/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 6. more menu.png[]
+image:app/src/main/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 7. interval labels.png[]
+image:app/src/main/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 - 8. sizing popup.png[]
 
 
 === Possible next features ... or just a bunch of ideas
