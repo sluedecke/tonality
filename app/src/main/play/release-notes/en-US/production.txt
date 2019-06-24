@@ -1,0 +1,4 @@
+Optional labeling of intervals
+Added greek scales
+Added octave shifting buttons to main toolbar
+Several User Interface improvements

@@ -1,0 +1,11 @@
+Tonality is a simple piano keyboard.  It allows to highlight scales based on
+a root note and can label intervals for you.  This makes learning of scales much easier.
+
+Features:
+
+* Piano view to play with
+* Scale highlighting
+* Optional key labeling
+* Optional interval labeling based on root note
+* Dynamic sizing of the keyboard
+* Stack multiple keyboards
