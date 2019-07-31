@@ -21,13 +21,13 @@ Official website:     https://tck.mn/semitone/
 
 === Getting Tonality
 
-// image:https://f-droid.org/badge/get-it-on.png[Get it on F-Droid, height=75]
+image:https://f-droid.org/badge/get-it-on.png[Get it on F-Droid, height=75, link="https://f-droid.org/de/packages/net.currit.tonality/"]
 image:https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png[link="https://play.google.com/store/apps/details?id=net.currit.tonality", Get it on Google Play, height=75]
 
-// image:https://img.shields.io/f-droid/v/net.currit.tonality.svg[]
-image:https://img.shields.io/github/tag/sluedecke/tonality.svg?logo=github[Latest tag]
-image:https://img.shields.io/github/issues/sluedecke/tonality.svg?logo=github["Tonality issues",link="https://github.com/sluedecke/tonality/issues"]
-image:https://img.shields.io/github/license/sluedecke/tonality.svg?logo=github["Tonality license",link="https://github.com/sluedecke/tonality/blob/master/LICENSE"]
+image:https://img.shields.io/f-droid/v/net.currit.tonality[]
+image:https://img.shields.io/github/tag/sluedecke/tonality[]
+image:https://img.shields.io/github/issues/sluedecke/tonality["Tonality issues",link="https://github.com/sluedecke/tonality/issues"]
+image:https://img.shields.io/github/license/sluedecke/tonality["Tonality license",link="https://github.com/sluedecke/tonality/blob/master/LICENSE"]
 
 == Feature Overview
 
