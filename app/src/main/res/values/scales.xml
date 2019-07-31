@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string-array name="scaleNames">
         <item>@string/scale_none</item>
         <item>@string/scale_natural_major</item>
@@ -24,7 +23,7 @@
         <item>m3</item>
         <item>M3</item>
         <item>P4</item>
-        <item> </item>
+        <item>Tri</item>
         <item>P5</item>
         <item>m6</item>
         <item>M6</item>
@@ -33,16 +32,16 @@
     </string-array>
     <string-array name="noteNames">
         <item>C</item>
-        <item>C♯ / D♭</item>
+        <item>C♯/D♭</item>
         <item>D</item>
-        <item>D♯ / E♭</item>
+        <item>D♯/E♭</item>
         <item>E</item>
         <item>F</item>
-        <item>F♯ / G♭</item>
+        <item>F♯/G♭</item>
         <item>G</item>
-        <item>G♯ / A♭</item>
+        <item>G♯/A♭</item>
         <item>A</item>
-        <item>A♯ / B♭</item>
+        <item>A♯/B♭</item>
         <item>B</item>
     </string-array>
     <array name="scales">

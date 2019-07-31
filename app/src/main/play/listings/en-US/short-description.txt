@@ -1,1 +1,1 @@
-Play piano with a simple keyboard. Highlight scales and intervals to ease learning of scales.
+Play piano with scales and intervals shown to ease learning of music theory.

@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
     <Button
         android:id="@+id/button_root_note"
-        android:layout_width="84dp"
+        android:layout_width="64dip"
+        android:padding="1dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorPrimary"
-        android:gravity="center"
-        android:text="F#"
+        android:text="D♯/E♭"
         android:textAllCaps="false"
         android:textColor="@color/white" />
 
     <Button
         android:id="@+id/button_scale"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:backgroundTint="@color/colorPrimary"
-        android:gravity="center"
         android:text="Pentatonic Major"
         android:textAllCaps="false"
         android:textColor="@color/white" />
