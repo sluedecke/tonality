@@ -14,6 +14,9 @@ import androidx.core.content.ContextCompat;
 import mn.tck.semitone.PianoView;
 import mn.tck.semitone.Util;
 
+import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
+import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
+
 public class TonalityPianoView extends PianoView {
 
     final static String PREF_SCALE = "scale";
@@ -38,6 +41,14 @@ public class TonalityPianoView extends PianoView {
     public TonalityPianoView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
+        // get orientation based configuration values for keyboard dimensions
+        String orientation = getOrientationString();
+        SharedPreferences sp = androidx.preference.PreferenceManager.getDefaultSharedPreferences(context);
+        rows = sp.getInt("piano_rows" + orientation, 2);
+        keys = sp.getInt("piano_keys" + orientation, 7);
+        pitch = sp.getInt("piano_pitch" + orientation, 28);
+        updateParams(false);
+
         // setup colors
         whiteScalePaint = new Paint();
         whiteScalePaint.setColor(ContextCompat.getColor(getContext(), R.color.whiteScale));
@@ -53,7 +64,6 @@ public class TonalityPianoView extends PianoView {
         intervalBlackPaint.setColor(ContextCompat.getColor(getContext(), R.color.intervalBlackLabel));
 
         // initialize from preferences
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getContext());
         setScale(sp.getInt(PREF_SCALE, PREF_SCALE_DEFAULT), sp.getInt(PREF_SCALE_ROOT, PREF_SCALE_ROOT_DEFAULT));
         sustain = sp.getBoolean("sustain", false);
         labelnotes = sp.getBoolean("labelnotes", true);
@@ -69,6 +79,42 @@ public class TonalityPianoView extends PianoView {
         // get interval and note names for labelling
         intervalNames = getResources().getStringArray(R.array.intervalNames);
         noteNames = getResources().getStringArray(R.array.noteNames);
+    }
+
+    private String getOrientationString() {
+        return getContext().getResources().getConfiguration().orientation == ORIENTATION_PORTRAIT
+                ? "_portrait"
+                : "_landscape";
+    }
+
+    /**
+     * Replaces updateParams from PianoView to properly handle screen orientation
+     * @param inval
+     */
+    public void updateParams(boolean inval) {
+        pitches = new int[rows][keys];
+
+        int p = 0;
+        for (int i = 0; i < pitch; ++i) p += hasBlackRight(p) ? 2 : 1;
+        for (int row = 0; row < rows; ++row) {
+            for (int key = 0; key < keys; ++key) {
+                pitches[row][key] = p;
+                p += hasBlackRight(p) ? 2 : 1;
+            }
+        }
+
+        if (inval) {
+            String orientation = getOrientationString();
+
+            SharedPreferences.Editor editor =
+                    androidx.preference.PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+            editor.putInt("piano_rows" + orientation, rows);
+            editor.putInt("piano_keys" + orientation, keys);
+            editor.putInt("piano_pitch" + orientation, pitch);
+            editor.apply();
+
+            invalidate();
+        }
     }
 
     public void setRoot(int newRoot) {
