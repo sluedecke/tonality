@@ -56,7 +56,12 @@ void PianoEngine::deinit() {
 
 void PianoEngine::pause() {
     stream->requestPause();
-    stream->waitForStateChange(oboe::StreamState::Pausing, nullptr, 1000000000);
+
+    // [2019-08-21] if AAudio is chosen by oboe as a backend, we need to pass an actual nextState.
+    // AudioStreamAAudio::waitForStateChange does not check for nullptr like the AudioStreamOpenSLES
+    // implementation does.
+    oboe::StreamState nextState = oboe::StreamState::Uninitialized;
+    stream->waitForStateChange(oboe::StreamState::Pausing, &nextState, 1000000000);
     for (int i = 0; i < MAX_TONES; ++i) {
         delete tones[i];
         tones[i] = nullptr;

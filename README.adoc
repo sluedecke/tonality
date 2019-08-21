@@ -65,7 +65,6 @@ image:app/src/main/play/listings/en-US/graphics/phone-screenshots/tonality-v1.2 
 * [ ] add MIDI keyboard support via USB on the go
 * [ ] add metronome to piano view
 * [ ] automate screenshot generation combined with espresso UI testing
-* [ ] add link to google play, fix link to f-droid once published there
 
 
 

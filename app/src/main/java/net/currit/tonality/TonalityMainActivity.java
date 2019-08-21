@@ -19,6 +19,7 @@ import androidx.databinding.DataBindingUtil;
 
 import net.currit.tonality.databinding.ActivityTonalityMainBinding;
 import net.currit.tonality.databinding.PopupSizingBinding;
+
 import mn.tck.semitone.PianoEngine;
 
 public class TonalityMainActivity extends AppCompatActivity {
@@ -110,6 +111,16 @@ public class TonalityMainActivity extends AppCompatActivity {
             actionBar.hide();
         }
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN); // hide notification bar
+    }
+
+    @Override protected void onPause() {
+        super.onPause();
+        PianoEngine.pause();
+    }
+
+    @Override protected void onResume() {
+        super.onResume();
+        if (PianoEngine.isPaused()) PianoEngine.resume();
     }
 
     @Override

@@ -57,8 +57,9 @@ public class PianoEngine {
         paused = true;
     }
 
-    static void pause() { paused = true; doPause(handle); }
-    static void resume() { paused = false; doResume(handle); }
+    public static boolean isPaused() { return paused; }
+    public static void pause() { paused = true; doPause(handle); }
+    public static void resume() { paused = false; doResume(handle); }
     static void play(int pitch, int concert_a) { doPlay(handle, pitch, concert_a); }
     static void stop(int pitch) { doStop(handle, pitch); }
     static void playFile(String path, int concert_a) { doPlayFile(handle, path, concert_a); }
