@@ -14,7 +14,6 @@ import androidx.core.content.ContextCompat;
 import mn.tck.semitone.PianoView;
 import mn.tck.semitone.Util;
 
-import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
 import static android.content.res.Configuration.ORIENTATION_PORTRAIT;
 
 public class TonalityPianoView extends PianoView {
@@ -89,6 +88,7 @@ public class TonalityPianoView extends PianoView {
 
     /**
      * Replaces updateParams from PianoView to properly handle screen orientation
+     *
      * @param inval
      */
     public void updateParams(boolean inval) {

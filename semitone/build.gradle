@@ -11,11 +11,12 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.1'
+        classpath 'com.android.tools.build:gradle:3.5.0'
     }
 }
 
-apply plugin: 'com.android.application'
+// apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 repositories {
     mavenCentral()
@@ -26,10 +27,10 @@ repositories {
 }
 
 dependencies {
-    implementation 'androidx.preference:preference:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.preference:preference:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.legacy:legacy-support-core-ui:1.0.0'
-    implementation 'com.google.android.material:material:1.0.0-rc01'
+    implementation 'com.google.android.material:material:1.1.0-alpha10'
 }
 
 android {
@@ -37,10 +38,11 @@ android {
 
     lintOptions {
         disable "GoogleAppIndexingWarning"
+        disable "AppCompatCustomView"
     }
 
     defaultConfig {
-        applicationId "mn.tck.semitone"
+//        applicationId "mn.tck.semitone"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 3
