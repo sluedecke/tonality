@@ -118,8 +118,8 @@
     </integer-array>
     <integer-array name="scale_melodic_minor">
         <item>1</item> <!-- C -->
-        <item>1</item> <!-- C# / Db -->
-        <item>0</item> <!-- D -->
+        <item>0</item> <!-- C# / Db -->
+        <item>1</item> <!-- D -->
         <item>1</item> <!-- D# / Eb -->
         <item>0</item> <!-- E -->
         <item>1</item> <!-- F -->
