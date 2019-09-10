@@ -76,6 +76,7 @@ public class TonalityMainActivity extends AppCompatActivity {
                 m.findItem(R.id.menu_switch_labelc).setChecked(activityBinding.piano.isLabelC()).setEnabled(activityBinding.piano.isLabelNotes());
                 m.findItem(R.id.menu_switch_circleoffifths).setChecked(scaleController.isUseCircleOfFifthSelector());
                 m.findItem(R.id.menu_switch_labelintervals).setChecked(activityBinding.piano.isLabelIntervals());
+                m.findItem(R.id.menu_switch_rows_top_down).setChecked(activityBinding.piano.rowsTopDown);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -93,6 +94,8 @@ public class TonalityMainActivity extends AppCompatActivity {
                             case R.id.menu_switch_labelintervals:
                                 activityBinding.piano.toggleLabelIntervals();
                                 return true;
+                            case R.id.menu_switch_rows_top_down:
+                                activityBinding.piano.toggleRowsTopDown();
                             case R.id.menu_switch_circleoffifths:
                                 scaleController.toggleCircleOfFifthsSelector();
                                 return true;

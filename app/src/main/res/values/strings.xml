@@ -8,6 +8,7 @@
     <string name="piano_labelnotes">Label keys</string>
     <string name="piano_labelc">Label C keys only</string>
     <string name="piano_labelintervals">Label Intervals</string>
+    <string name="piano_row_direction">Lower notes on top</string>
     <string name="reset_keyboard">Reset</string>
     <string name="piano_circleoffifths">Circle of Fifths note selector</string>
     

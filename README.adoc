@@ -40,8 +40,8 @@ Features:
 * Scale highlighting
 * Optional key labeling
 * Optional interval labeling based on root note
-* Dynamic sizing of the keyboard
-* Stack multiple keyboards
+* Dynamic sizing of the keyboard (configuration stored per device orientation)
+* Stack multiple keyboards (top down or bottom up)
 
 
 === Screenshots of Tonality (Version 1.2)

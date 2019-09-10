@@ -15,6 +15,10 @@
             android:checkable="true"
             android:title="@string/piano_labelintervals" />
         <item
+            android:id="@+id/menu_switch_rows_top_down"
+            android:checkable="true"
+            android:title="@string/piano_row_direction"/>
+        <item
             android:id="@+id/menu_switch_circleoffifths"
             android:checkable="true"
             android:title="@string/piano_circleoffifths" />
