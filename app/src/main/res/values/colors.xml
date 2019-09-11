@@ -10,10 +10,23 @@
 
     <color name="black_overlay">#66000000</color>
 
+    <!-- colorful theme -->
+    <color name="whiteKey">#ffffff</color>
+    <color name="blackKey">#181818</color>
     <color name="whiteScale">#FFE488</color>
     <color name="blackScale">#8B6200</color>
     <color name="whiteScaleRoot">#D1A148</color>
     <color name="blackScaleRoot">#D1A148</color>
     <color name="intervalWhiteLabel">#8b0000</color>
     <color name="intervalBlackLabel">#ffffff</color>
+
+    <!-- yellow theme theme -->
+    <color name="yellowWhiteKey">#ffffff</color>
+    <color name="yellowBlackKey">#ffffff</color>
+    <color name="yellowWhiteScale">#FFE488</color>
+    <color name="yellowBlackScale">#FFE488</color>
+    <color name="yellowWhiteScaleRoot">#D1A148</color>
+    <color name="yellowBlackScaleRoot">#D1A148</color>
+    <color name="yellowIntervalWhiteLabel">#8b0000</color>
+    <color name="yellowIntervalBlackLabel">#181818</color>
 </resources>
