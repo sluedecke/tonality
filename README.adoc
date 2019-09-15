@@ -29,7 +29,7 @@ image:https://img.shields.io/github/tag/sluedecke/tonality[]
 image:https://img.shields.io/github/issues/sluedecke/tonality["Tonality issues",link="https://github.com/sluedecke/tonality/issues"]
 image:https://img.shields.io/github/license/sluedecke/tonality["Tonality license",link="https://github.com/sluedecke/tonality/blob/master/LICENSE"]
 
-== Feature Overview
+== Full Description
 
 Tonality is a simple piano keyboard.  It allows to highlight scales based on
 a root note and can label intervals for you.  This makes learning of scales much easier.

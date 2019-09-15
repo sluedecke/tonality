@@ -1,4 +1,6 @@
-Optional labeling of intervals
-Added greek scales
-Added octave shifting buttons to main toolbar
-Several User Interface improvements
+Added Tri as label for the Tritone interval
+Keyboard configuration now per screen orientation
+Octave order of keyboards can be toggled between top down (old) and bottom up
+Fix melodic minor to have a major 2nd
+Some User Interface improvements
+Better handling of audio streams (close when app in background)
