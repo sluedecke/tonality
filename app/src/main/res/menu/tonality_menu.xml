@@ -18,10 +18,10 @@
             android:id="@+id/menu_switch_rows_top_down"
             android:checkable="true"
             android:title="@string/piano_row_direction"/>
-        <item
-            android:id="@+id/menu_theme_less"
-            android:checkable="true"
-            android:title="@string/piano_theme_less"/>
+<!--        <item-->
+<!--            android:id="@+id/menu_theme_less"-->
+<!--            android:checkable="true"-->
+<!--            android:title="@string/piano_theme_less"/>-->
         <item
             android:id="@+id/menu_switch_circleoffifths"
             android:checkable="true"
