@@ -8,6 +8,7 @@
         <item>@string/scale_melodic_minor</item>
         <item>@string/scale_pentatonic_major</item>
         <item>@string/scale_pentatonic_minor</item>
+        <item>@string/scale_whole_tone</item>
         <item>@string/scale_ionian</item>
         <item>@string/scale_dorian</item>
         <item>@string/scale_phrygian</item>
@@ -52,6 +53,7 @@
         <item>@array/scale_melodic_minor</item>
         <item>@array/scale_pentatonic_major</item>
         <item>@array/scale_pentatonic_minor</item>
+        <item>@string/scale_whole_tone</item>
         <item>@array/scale_ionian</item>
         <item>@array/scale_dorian</item>
         <item>@array/scale_phrygian</item>
@@ -154,6 +156,21 @@
         <item>0</item> <!-- F# / Gb -->
         <item>1</item> <!-- G -->
         <item>0</item> <!-- G# / Ab -->
+        <item>0</item> <!-- A -->
+        <item>1</item> <!-- A# / Bb -->
+        <item>0</item> <!-- B -->
+    </integer-array>
+    
+    <integer-array name="scale_whole_tone">
+        <item>1</item> <!-- C -->
+        <item>0</item> <!-- C# / Db -->
+        <item>1</item> <!-- D -->
+        <item>0</item> <!-- D# / Eb -->
+        <item>1</item> <!-- E -->
+        <item>0</item> <!-- F -->
+        <item>1</item> <!-- F# / Gb -->
+        <item>0</item> <!-- G -->
+        <item>1</item> <!-- G# / Ab -->
         <item>0</item> <!-- A -->
         <item>1</item> <!-- A# / Bb -->
         <item>0</item> <!-- B -->

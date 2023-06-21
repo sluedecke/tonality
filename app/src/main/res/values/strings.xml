@@ -21,6 +21,7 @@
     <string name="scale_melodic_minor">Melodic Minor</string>
     <string name="scale_pentatonic_major">Pentatonic Major</string>
     <string name="scale_pentatonic_minor">Pentatonic Minor</string>
+    <string name="scale_whole_tone">Whole Tone</string>
 
     <!-- Greek scales -->
     <string name="scale_ionian">Greek: Ionian</string>
